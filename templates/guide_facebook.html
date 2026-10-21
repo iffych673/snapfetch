@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}How to Download Facebook Videos & Reels — Step-by-Step Guide | SnapFetch{% endblock %}
+{% block description %}Learn how to download Facebook videos and Reels to your phone or computer. Save public Facebook videos to watch offline in a few simple steps with SnapFetch.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>How to Download Facebook Videos &amp; Reels</h1>
+  <p class="article-intro">Facebook is where a lot of the internet's everyday video lives — family clips, page videos, live streams you missed, and endless Reels. Facebook itself only lets you "save" a video inside the app, which is no help when you want the file on your phone or computer. This guide shows how to download public Facebook videos and Reels with SnapFetch, a free tool that works right in your browser.</p>
+
+  <h2>Step-by-step: download a Facebook video or Reel</h2>
+  <ol class="guide-steps">
+    <li><strong>Find the video.</strong> Open Facebook and go to the video or Reel you want to save.</li>
+    <li><strong>Tap Share.</strong> On a Reel, the Share arrow is on the right side. On a regular video, the Share button sits under the player.</li>
+    <li><strong>Choose “Copy link”.</strong> This copies the video's web address to your clipboard.</li>
+    <li><strong>Open SnapFetch.</strong> Visit the <a href="{{ url_for('home') }}">SnapFetch home page</a> in any browser.</li>
+    <li><strong>Paste the link</strong> into the box at the top and press <strong>Download</strong>.</li>
+    <li><strong>Pick a format and save.</strong> Choose a video quality, or MP3 if you only need the audio. The file saves to your device.</li>
+  </ol>
+
+  <h2>Which Facebook videos can be downloaded?</h2>
+  <p>SnapFetch works with videos that are <strong>public</strong> — for example, videos posted by public Pages, public Reels, and videos shared with a public audience setting. Videos posted to private groups, friends-only posts, and content behind a login cannot be fetched, because there is no public file for our tool to reach.</p>
+
+  <h2>Downloading Reels vs. regular videos</h2>
+  <p>The process is identical for both. The only difference is where the Share button sits: Reels have it in the column of icons on the right edge of the screen, while regular watch-page videos show a Share button below the video. If you are on a computer, you can also just copy the address from your browser's address bar while the video page is open.</p>
+
+  <h2>Tips for better results</h2>
+  <ul>
+    <li><strong>Open the video first.</strong> Copying a link from a feed preview sometimes copies the post instead of the video. Open the video so it plays, then copy the link.</li>
+    <li><strong>Use the video's own URL.</strong> Links that contain <em>/reel/</em> or <em>/watch/</em> work best. Very long tracking-heavy links can also work — SnapFetch follows them to the real video.</li>
+    <li><strong>Save your own Page videos.</strong> If you run a Facebook Page, downloading your published videos is a simple way to keep an archive of your content.</li>
+    <li><strong>Mind the file size.</strong> Long videos in high quality can be hundreds of megabytes. On mobile data, a lower quality or a Wi-Fi connection is kinder to your data plan.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <details><summary>Can I download videos from private Facebook groups?</summary><p>No. Group videos that require a login to view are not publicly reachable, so SnapFetch cannot download them.</p></details>
+    <details><summary>Can I download a Facebook Live video?</summary><p>Once a live broadcast has ended and been posted as a regular public video, it can usually be downloaded like any other video. Ongoing live streams cannot.</p></details>
+    <details><summary>Does the video owner get notified?</summary><p>No. SnapFetch simply fetches the public file, the same way your browser does when you watch it. Nothing is posted anywhere and no notification is sent.</p></details>
+    <details><summary>Can I get just the audio from a Facebook video?</summary><p>Yes. After pasting the link, pick the MP3 option in the Audio section.</p></details>
+    <details><summary>Is it OK to download Facebook videos?</summary><p>Please download only videos you own or have permission to save, for personal use — for example your own uploads, or content a creator has invited people to share offline. See our <a href="{{ url_for('terms') }}">Terms of Use</a> for details.</p></details>
+  </div>
+</article>
+{% endblock %}

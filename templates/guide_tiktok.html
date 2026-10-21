@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}How to Download TikTok Videos — Step-by-Step Guide | SnapFetch{% endblock %}
+{% block description %}Learn how to download TikTok videos to your phone or computer in a few simple steps. Save TikToks to watch offline, keep your own uploads backed up, or grab the audio as MP3.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>How to Download TikTok Videos</h1>
+  <p class="article-intro">TikTok is full of videos worth keeping — a recipe you want to try, a dance tutorial, or one of your own uploads you want backed up somewhere safe. TikTok's built-in save button does not always appear, and saved videos stay inside the app. This guide shows the simplest way to download a TikTok video to your own device using SnapFetch, a free tool that works in any browser.</p>
+
+  <h2>Step-by-step: download any public TikTok video</h2>
+  <ol class="guide-steps">
+    <li><strong>Find the video.</strong> Open TikTok and go to the video you want to save.</li>
+    <li><strong>Tap the Share button.</strong> It is the arrow icon on the right side of the video.</li>
+    <li><strong>Choose “Copy link”.</strong> The video's web address is now on your clipboard.</li>
+    <li><strong>Open SnapFetch.</strong> Go to the <a href="{{ url_for('home') }}">SnapFetch home page</a> in your browser — no app install is needed.</li>
+    <li><strong>Paste the link</strong> into the big box at the top and press <strong>Download</strong>.</li>
+    <li><strong>Pick your format.</strong> Choose a video quality, or pick MP3 if you only want the sound. The file saves straight to your device.</li>
+  </ol>
+
+  <h2>Downloading on iPhone</h2>
+  <p>On an iPhone, the steps are the same, but where the file lands depends on your browser. In Safari, downloaded videos go to the Files app under Downloads. If you want the video in your Photos library, open it in Files, tap the Share icon, and choose “Save Video”.</p>
+
+  <h2>Downloading on Android</h2>
+  <p>On Android, Chrome and most other browsers save the file to your Downloads folder. You can open it from the notification that appears when the download finishes, or find it later in your gallery or file manager.</p>
+
+  <h2>Downloading on a computer</h2>
+  <p>On a PC or Mac, copying the link is even easier: open the TikTok video in your browser and copy the address from the address bar. Paste it into SnapFetch, choose a format, and the file downloads like any other file from the web.</p>
+
+  <h2>Tips for better results</h2>
+  <ul>
+    <li><strong>Use the full link.</strong> If a shortened link fails, open it once in your browser so it expands to the full video address, then copy that.</li>
+    <li><strong>Pick the quality you need.</strong> Higher quality means a bigger file. If you only plan to watch on your phone, a mid-range option is usually plenty.</li>
+    <li><strong>Back up your own videos.</strong> Downloading your own uploads is the easiest way to keep an original copy outside the app, before any edits or captions were added in TikTok.</li>
+    <li><strong>Check your storage.</strong> A full phone can silently stop downloads. If a download fails for no obvious reason, free up a little space and try again.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <details><summary>Can I download a private TikTok?</summary><p>No. SnapFetch can only fetch videos that anyone can view publicly. Private and friends-only videos cannot be downloaded.</p></details>
+    <details><summary>Can I download just the sound from a TikTok?</summary><p>Yes. After pasting the link, choose the MP3 option in the Audio section and only the audio will be saved.</p></details>
+    <details><summary>Do I need a TikTok account to use SnapFetch?</summary><p>No. You do not need to sign in to TikTok or to SnapFetch. You only need the link to a public video.</p></details>
+    <details><summary>Is there a limit on downloads?</summary><p>There is no account and no daily limit from us. Very large numbers of requests in a short time may be slowed down to keep the tool fast for everyone.</p></details>
+    <details><summary>Is it allowed to download TikTok videos?</summary><p>Downloading is fine for your own videos and for content you have permission to save, for personal use. Videos belong to their creators — please do not re-upload someone else's work as your own. Our <a href="{{ url_for('terms') }}">Terms of Use</a> explain this in more detail.</p></details>
+  </div>
+</article>
+{% endblock %}

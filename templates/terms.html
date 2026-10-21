@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Terms of Use | SnapFetch{% endblock %}
+{% block description %}The terms for using SnapFetch: a free tool for downloading your own or permitted content, for personal use only.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>Terms of Use</h1>
+  <p class="article-intro">Last updated: 21 October 2026. By using SnapFetch, you agree to these terms. If you do not agree, please do not use the site.</p>
+
+  <h2>What SnapFetch is</h2>
+  <p>SnapFetch is a free technical tool that fetches a publicly available video file from a link you provide and delivers it to your device. SnapFetch does not host, store or distribute videos, and it does not provide any content of its own.</p>
+
+  <h2>Your responsibilities</h2>
+  <ul>
+    <li>Only download content that <strong>you own</strong>, that is in the <strong>public domain</strong>, or that you have the <strong>copyright holder's permission</strong> to download.</li>
+    <li>Use downloaded files for <strong>personal, non-commercial purposes</strong> only.</li>
+    <li>Do not re-upload, sell, or redistribute downloaded content as if it were your own.</li>
+    <li>Do not use SnapFetch to infringe anyone's copyright, privacy or other rights, and do not attempt to access private or restricted content.</li>
+    <li>Do not abuse the service — for example by automated bulk requests that overload the server. We may limit or block traffic that harms the site.</li>
+  </ul>
+
+  <h2>Copyright</h2>
+  <p>All videos remain the property of their respective creators and rights holders. Nothing in these terms transfers any rights in downloaded content to you. If you are a rights holder and believe the tool is being misused in connection with your work, please see our <a href="{{ url_for('dmca') }}">DMCA / copyright page</a>.</p>
+
+  <h2>Availability and changes</h2>
+  <p>The service is provided "as is", free of charge, with no guarantee that it will work for every link or be available at all times. Platforms change their systems frequently, and a link that works today may stop working tomorrow. We may change, suspend or discontinue the service at any time.</p>
+
+  <h2>Liability</h2>
+  <p>To the maximum extent allowed by law, SnapFetch's operators are not liable for how downloaded content is used, or for any loss arising from use of the site. You are responsible for making sure your use of downloaded content is lawful in your country and permitted by the platform the content came from.</p>
+
+  <h2>Changes to these terms</h2>
+  <p>We may update these terms from time to time. Continued use of the site after changes are posted means you accept the updated terms.</p>
+</article>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}DMCA & Copyright Policy | SnapFetch{% endblock %}
+{% block description %}SnapFetch does not host any videos. Copyright holders can contact us here about misuse or takedown-related questions.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>DMCA &amp; Copyright Policy</h1>
+  <p class="article-intro">SnapFetch respects the intellectual property rights of creators and rights holders, and complies with the Digital Millennium Copyright Act (DMCA) and similar laws in other countries.</p>
+
+  <h2>We do not host content</h2>
+  <p>SnapFetch is a fetch tool, not a hosting service. We do not upload, store, catalogue or redistribute videos. When a visitor uses the tool, the file is retrieved from the original platform (such as TikTok, Facebook, Instagram, YouTube or X) at that moment, delivered to the visitor, and the temporary copy on our server is deleted automatically. Because nothing is hosted here, there is no SnapFetch library from which content can be removed — the original file always remains under the control of the platform and its uploader.</p>
+
+  <h2>If you are a rights holder</h2>
+  <p>If you believe a video of yours is being accessed in a way that infringes your rights, the effective remedy is at the source: every platform listed above has its own copyright reporting process, and removing the video there stops it being fetched anywhere. If you contact us, we can block specific URLs from being processed by SnapFetch where technically feasible.</p>
+
+  <h2>How to send a notice</h2>
+  <p>Email <a href="mailto:{{ email }}">{{ email }}</a> with:</p>
+  <ul>
+    <li>Your full name and, if applicable, the organisation you represent.</li>
+    <li>A description of the copyrighted work you believe has been infringed.</li>
+    <li>The exact URL(s) involved.</li>
+    <li>A statement that you have a good-faith belief the use is not authorised by you, your agent, or the law.</li>
+    <li>A statement, under penalty of perjury, that the information in your notice is accurate and that you are the rights holder or authorised to act for them.</li>
+    <li>Your physical or electronic signature.</li>
+  </ul>
+  <p>We review valid notices promptly and respond within a reasonable time.</p>
+
+  <h2>Repeat misuse</h2>
+  <p>SnapFetch's terms prohibit using the tool to infringe copyright. Where we identify patterns of misuse, we will take reasonable steps — such as blocking URLs, referrers or traffic sources — to stop it.</p>
+</article>
+{% endblock %}

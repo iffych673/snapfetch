@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}About SnapFetch — What It Is and Who It's For{% endblock %}
+{% block description %}SnapFetch is a free online video downloader for TikTok, Facebook, Instagram, YouTube and X. Learn what the tool does, who it is for, and how it works.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>About SnapFetch</h1>
+  <p class="article-intro">SnapFetch is a small, free web tool that helps you save videos from the platforms you already use — TikTok, Facebook, Instagram, YouTube and X — so you can watch them offline, keep a copy of your own work, or hold on to a clip that matters to you.</p>
+
+  <h2>What SnapFetch does</h2>
+  <p>You paste a link to a public video, and SnapFetch fetches the video file directly from the original platform and offers it back to you in the qualities the platform itself provides, plus an MP3 audio option. That is the whole trick: no accounts, no software to install, and nothing stored on our side. When you download, the file travels from the source platform, through our server, to your device — and is then deleted from our server automatically.</p>
+
+  <h2>Who it is for</h2>
+  <ul>
+    <li><strong>Creators</strong> who want clean backup copies of their own uploads.</li>
+    <li><strong>Everyday viewers</strong> who want to watch a video offline — on a flight, on a commute, or somewhere with a weak connection.</li>
+    <li><strong>Students and researchers</strong> who need to keep a reference copy of a public talk, tutorial or news clip.</li>
+    <li><strong>Families</strong> saving public videos that were shared with them, before the post disappears.</li>
+  </ul>
+
+  <h2>How we think about it</h2>
+  <p>Videos belong to the people who made them. SnapFetch is built for personal use — saving your own content and content you have permission to keep. We do not host videos, we do not build a library of anyone's content, and we ask every visitor to respect creators' rights. Our <a href="{{ url_for('terms') }}">Terms of Use</a> and <a href="{{ url_for('dmca') }}">copyright page</a> spell this out.</p>
+
+  <h2>How the site is funded</h2>
+  <p>SnapFetch is free to use. To cover server costs, the site may display advertising (including Google AdSense ads). Ads never change how the tool works, and there is no paid tier.</p>
+
+  <h2>Get in touch</h2>
+  <p>Questions, feedback, or a link that should work but does not? Visit our <a href="{{ url_for('contact') }}">contact page</a> — we read everything.</p>
+</article>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}SnapFetch — Free Video Downloader for TikTok, Facebook, Instagram & YouTube{% endblock %}
+{% block description %}Download videos from TikTok, Facebook, Instagram, YouTube and X for free. Paste the link, pick a quality, and save the video or MP3 — no app and no account needed.{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Free Video Downloader</h1>
+    <p class="hero-sub">Paste a link from TikTok, Facebook, Instagram, YouTube or X — and save the video in seconds. No app to install, no account to create.</p>
+
+    <form id="fetchForm" class="fetch-form" autocomplete="off">
+      <input type="url" id="urlInput" placeholder="Paste your video link here…" required>
+      <button type="submit" id="fetchBtn">Download</button>
+    </form>
+    <div id="statusBox" class="status-box hidden" role="status">
+      <span class="spinner" id="spinner"></span><span id="statusText">Fetching your video…</span>
+    </div>
+    <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-media">
+        <img id="resThumb" alt="Video thumbnail">
+      </div>
+      <div class="result-body">
+        <p class="result-platform" id="resPlatform"></p>
+        <h2 class="result-title" id="resTitle"></h2>
+        <p class="result-meta" id="resMeta"></p>
+        <div class="fmt-group">
+          <h3>Video</h3>
+          <div id="videoFormats" class="fmt-list"></div>
+        </div>
+        <div class="fmt-group">
+          <h3>Audio</h3>
+          <div id="audioFormats" class="fmt-list"></div>
+        </div>
+        <p class="result-note">Downloads are fetched fresh from the original source each time. SnapFetch never stores videos.</p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span>TikTok</span><span>Facebook</span><span>Instagram</span><span>YouTube</span><span>X (Twitter)</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Copy the link</h3><p>Open the video in your app or browser, tap Share, and choose “Copy link”.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Paste it above</h3><p>Paste the link into the box at the top of this page and press Download.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Pick a quality &amp; save</h3><p>Choose the video quality you want — or MP3 for audio only — and the file saves to your device.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Why people use SnapFetch</h2>
+  <div class="cards">
+    <div class="card"><h3>Completely free</h3><p>There is nothing to pay and no premium tier. Every format the original video offers is available to everyone.</p></div>
+    <div class="card"><h3>No app, no account</h3><p>SnapFetch runs entirely in your browser. Nothing to install, and we never ask you to register or sign in.</p></div>
+    <div class="card"><h3>Original quality</h3><p>Files are fetched directly from the source at the quality the creator uploaded, including HD when it is available.</p></div>
+    <div class="card"><h3>Video or MP3</h3><p>Save the full video, or grab just the sound as an MP3 — handy for music, speeches and podcasts.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Frequently asked questions</h2>
+  <details><summary>Is SnapFetch free?</summary><p>Yes. SnapFetch is free to use, with no limits on how many videos you save. The site is supported by advertising.</p></details>
+  <details><summary>Which sites are supported?</summary><p>TikTok, Facebook (including Reels), Instagram (Reels and posts), YouTube (including Shorts) and X. If a platform changes something, a link may stop working for a while — try again later.</p></details>
+  <details><summary>Can I download private videos?</summary><p>No. SnapFetch can only fetch videos that are publicly viewable. If a video is private or friends-only, it cannot be downloaded here.</p></details>
+  <details><summary>Where do downloaded videos go?</summary><p>They save to your device's Downloads folder, like any other file from your browser.</p></details>
+  <details><summary>Is it OK to download any video?</summary><p>Please only download videos you own, that are in the public domain, or that you have the creator's permission to save, and use them for personal purposes. See our <a href="{{ url_for('terms') }}">Terms of Use</a>.</p></details>
+</section>
+{% endblock %}

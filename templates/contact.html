@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Contact Us | SnapFetch{% endblock %}
+{% block description %}Get in touch with the SnapFetch team — questions, feedback, problem links and copyright enquiries.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>Contact Us</h1>
+  <p class="article-intro">We read every message. The fastest way to reach the SnapFetch team is by email:</p>
+
+  <p class="contact-email"><a href="mailto:{{ email }}">{{ email }}</a></p>
+
+  <h2>What to write about</h2>
+  <ul>
+    <li><strong>A link that does not work:</strong> send the exact link you pasted and tell us what error you saw. Platform changes break things from time to time, and reports help us fix them.</li>
+    <li><strong>Feedback and ideas:</strong> tell us which sites or features you would like supported.</li>
+    <li><strong>Copyright:</strong> rights holders should include the details listed on our <a href="{{ url_for('dmca') }}">DMCA page</a> so we can act quickly.</li>
+    <li><strong>Privacy:</strong> questions about your information are covered by our <a href="{{ url_for('privacy') }}">Privacy Policy</a>; anything else, just ask.</li>
+  </ul>
+
+  <p>We aim to reply within a few working days. Please note we cannot help download private videos, and we cannot recover videos that have been deleted from their original platform.</p>
+</article>
+{% endblock %}

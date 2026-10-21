@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Privacy Policy | SnapFetch{% endblock %}
+{% block description %}How SnapFetch handles your information: no accounts, no stored videos, minimal logs, and how advertising cookies (including Google AdSense) may be used.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>Privacy Policy</h1>
+  <p class="article-intro">Last updated: 21 October 2026. This policy explains, in plain language, what information SnapFetch handles when you use the site, and what we do with it.</p>
+
+  <h2>The short version</h2>
+  <p>SnapFetch has no accounts and no sign-up. We do not ask for your name, email address or any personal details to use the tool. We do not store the videos you download. Like almost every website, our servers keep short-lived technical logs, and advertising partners may use cookies as described below.</p>
+
+  <h2>Links you paste</h2>
+  <p>When you paste a video link, the link is sent to our server so the tool can fetch the video details and file from the original platform. Fetched files are held in temporary server storage only for the moment needed to deliver your download, and are deleted automatically afterwards. We do not build a catalogue of the links or videos processed through the site.</p>
+
+  <h2>Server logs</h2>
+  <p>Our servers automatically record basic technical information when you visit, such as your IP address, browser type, the pages requested and the time of the request. These logs are used to keep the site running, prevent abuse, and understand overall usage. They are kept only for a limited period and then deleted or anonymised.</p>
+
+  <h2>Cookies and advertising</h2>
+  <p>SnapFetch itself uses no tracking cookies for the core tool. However, the site may display advertising served by third parties, including Google AdSense. Google and other advertising partners may use cookies to serve ads based on your prior visits to this and other websites. You can opt out of personalised advertising by visiting Google's Ads Settings page (adssettings.google.com), and you can block or clear cookies at any time in your browser settings. Blocking cookies does not stop the downloader from working.</p>
+
+  <h2>Analytics</h2>
+  <p>We may use privacy-respecting, aggregate statistics to understand how many people visit and which pages are useful. These statistics do not identify individual visitors.</p>
+
+  <h2>Third-party platforms</h2>
+  <p>Videos are fetched from third-party platforms (TikTok, Facebook, Instagram, YouTube, X and others). Your use of those platforms is governed by their own privacy policies. SnapFetch is not affiliated with them.</p>
+
+  <h2>Children</h2>
+  <p>SnapFetch is a general-purpose tool and is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If we change this policy, we will update this page and the "last updated" date above.</p>
+
+  <h2>Contact</h2>
+  <p>Privacy questions can be sent to <a href="mailto:{{ email }}">{{ email }}</a>. See also our <a href="{{ url_for('contact') }}">contact page</a>.</p>
+</article>
+{% endblock %}
