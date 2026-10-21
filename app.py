@@ -9,6 +9,7 @@ Environment:
   YTDLP_BIN   path to yt-dlp binary (default: ~/workspace/bin/yt-dlp)
   PORT        set by run.sh / the host platform
 """
+import io
 import json
 import os
 import re
@@ -148,6 +149,11 @@ def contact():
     return render_template("contact.html", email=CONTACT_EMAIL)
 
 
+@app.route("/gemini-watermark-remover")
+def gemini_remover():
+    return render_template("gemini_remover.html")
+
+
 @app.route("/favicon.ico")
 def favicon():
     return send_from_directory(os.path.join(BASE_DIR, "static"),
@@ -169,8 +175,8 @@ def robots():
 @app.route("/sitemap.xml")
 def sitemap():
     pages = ["/", "/how-to-download-tiktok-videos",
-             "/how-to-download-facebook-videos", "/about",
-             "/privacy-policy", "/terms", "/dmca", "/contact"]
+             "/how-to-download-facebook-videos", "/gemini-watermark-remover",
+             "/about", "/privacy-policy", "/terms", "/dmca", "/contact"]
     urls = "".join(
         f"<url><loc>{request.url_root.rstrip('/')}{p}</loc></url>"
         for p in pages)
@@ -192,6 +198,72 @@ def ads_txt():
 # ---------------------------------------------------------------------------
 # API
 # ---------------------------------------------------------------------------
+
+def _clean_gemini_image(raw):
+    """Clean the visible Gemini sparkle logo from a photo's bottom-right
+    corner. The corner is rebuilt by mirroring the areas directly above and
+    beside it, then feather-blended so the repair is not obvious.
+    Only the visible mark is touched — invisible provenance signals such as
+    SynthID are part of the file and are not removed.
+    Returns (bytes, extension, mimetype)."""
+    from PIL import Image, ImageDraw, ImageFilter, ImageOps
+
+    img = Image.open(io.BytesIO(raw))
+    img = ImageOps.exif_transpose(img)
+    fmt = (img.format or "JPEG").upper()
+    img = img.convert("RGB")
+    w, h = img.size
+    max_edge = 2400
+    if max(w, h) > max_edge:
+        s = max_edge / max(w, h)
+        img = img.resize((round(w * s), round(h * s)), Image.LANCZOS)
+        w, h = img.size
+    side = max(24, int(min(w, h) * 0.15))
+    inset = max(2, int(min(w, h) * 0.008))
+    x1, y1 = w - inset, h - inset
+    x0, y0 = x1 - side, y1 - side
+    above = img.crop((x0, max(0, y0 - side), x1, y0)).transpose(
+        Image.FLIP_TOP_BOTTOM)
+    left = img.crop((max(0, x0 - side), y0, x0, y1)).transpose(
+        Image.FLIP_LEFT_RIGHT)
+    if above.size != (side, side):
+        above = above.resize((side, side))
+    if left.size != (side, side):
+        left = left.resize((side, side))
+    fill = Image.blend(above, left, 0.5).filter(
+        ImageFilter.GaussianBlur(1.2))
+    # Feathered mask: soft on the two inner edges, full strength at the
+    # image corner itself so no ghost of the logo survives there.
+    f = max(4, int(side * 0.18))
+    mask = Image.new("L", (side, side), 0)
+    ImageDraw.Draw(mask).rectangle([f, f, side, side], fill=255)
+    mask = mask.filter(ImageFilter.GaussianBlur(f / 2))
+    region = Image.composite(fill, img.crop((x0, y0, x1, y1)), mask)
+    img.paste(region, (x0, y0))
+    out = io.BytesIO()
+    if fmt == "PNG":
+        img.save(out, "PNG")
+        return out.getvalue(), "png", "image/png"
+    img.save(out, "JPEG", quality=92)
+    return out.getvalue(), "jpg", "image/jpeg"
+
+
+@app.route("/api/remove-watermark", methods=["POST"])
+def api_remove_watermark():
+    f = request.files.get("image")
+    if f is None or not f.filename:
+        return jsonify(error="Please choose an image first."), 400
+    raw = f.read(16 * 1024 * 1024 + 1)
+    if len(raw) > 16 * 1024 * 1024:
+        return jsonify(error="That image is too large (16 MB max)."), 413
+    try:
+        data, ext, mime = _clean_gemini_image(raw)
+    except Exception:
+        return jsonify(error="That file could not be read as an image. "
+                             "Please try a JPG, PNG or WebP photo."), 400
+    return send_file(io.BytesIO(data), mimetype=mime, as_attachment=True,
+                     download_name=f"snapfetch-clean.{ext}")
+
 
 @app.route("/api/info", methods=["POST"])
 def api_info():

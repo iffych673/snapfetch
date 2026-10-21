@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}Gemini Watermark Remover — Clean the ✦ Logo from AI Photos | SnapFetch{% endblock %}
+{% block description %}Free online tool to remove the visible Gemini sparkle logo from the corner of your AI-generated photos. Upload a photo, and download a clean copy in seconds — no sign-up, and your image is never stored.{% endblock %}
+{% block head %}
+<style>
+  .uploader { background:#fff; border:1px solid #e5e1f8; border-radius:16px; padding:22px; margin-top:22px; text-align:center; }
+  .uploader input[type=file] { display:block; margin:14px auto; max-width:100%; }
+  .clean-btn { background:#6c4cf1; color:#fff; border:0; border-radius:10px; padding:13px 28px; font-size:1rem; font-weight:600; cursor:pointer; }
+  .clean-btn:disabled { opacity:.55; cursor:wait; }
+  .compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+  .compare figure { margin:0; }
+  .compare img { width:100%; border-radius:12px; border:1px solid #e5e1f8; display:block; }
+  .compare figcaption { font-size:.85rem; color:#666; margin-top:6px; text-align:center; }
+  @media (max-width:640px){ .compare{ grid-template-columns:1fr; } }
+  .dl-btn { display:inline-block; margin-top:14px; background:#16a34a; color:#fff; text-decoration:none; border-radius:10px; padding:13px 28px; font-weight:600; }
+</style>
+{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Gemini Watermark Remover</h1>
+    <p class="hero-sub">Google Gemini stamps a small ✦ sparkle logo in the corner of every photo it makes. Upload your photo here and SnapFetch cleans that visible logo away — free, in seconds, and your image is never stored.</p>
+
+    <div class="uploader">
+      <form id="wmForm">
+        <input type="file" id="wmFile" accept="image/*" required>
+        <button type="submit" class="clean-btn" id="wmBtn">Remove the logo</button>
+      </form>
+      <div id="wmStatus" class="status-box hidden" role="status">
+        <span class="spinner"></span><span>Cleaning your photo…</span>
+      </div>
+      <div id="wmError" class="error-box hidden" role="alert"></div>
+      <div class="compare hidden" id="wmCompare">
+        <figure>
+          <img id="wmBefore" alt="Your original photo">
+          <figcaption>Before</figcaption>
+        </figure>
+        <figure>
+          <img id="wmAfter" alt="Your photo with the Gemini logo cleaned">
+          <figcaption>After</figcaption>
+        </figure>
+      </div>
+      <a id="wmDownload" class="dl-btn hidden" href="#" download="snapfetch-clean.jpg">Download clean photo</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Upload your photo</h3><p>Choose a JPG, PNG or WebP photo that Gemini made (up to 16 MB).</p></div>
+    <div class="step"><div class="step-n">2</div><h3>We clean the corner</h3><p>The corner carrying the ✦ logo is rebuilt from the surrounding picture, so the logo disappears into the image.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Download the clean copy</h3><p>Preview the result and save it. The original stays untouched on your device.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Good to know</h2>
+  <div class="cards">
+    <div class="card"><h3>Only the visible logo</h3><p>This tool cleans the sparkle you can see in the corner. Gemini also embeds an invisible AI marker (SynthID) inside the file — that stays, so the picture remains identifiable as AI-made.</p></div>
+    <div class="card"><h3>Your photo is not stored</h3><p>The image is processed in memory and the clean copy is sent straight back to you. Nothing is saved on our server.</p></div>
+    <div class="card"><h3>Best on Gemini exports</h3><p>The tool expects the logo in the bottom-right corner, where Gemini puts it. If the corner of your photo holds something important, it will be rebuilt too — check the preview.</p></div>
+    <div class="card"><h3>Label AI content</h3><p>Platforms like TikTok and Instagram ask you to label AI-generated content when you post it. A cleaned corner does not change that — please follow each platform's rules.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Frequently asked questions</h2>
+  <details><summary>Is this free?</summary><p>Yes, completely free — no account, no limits for normal use.</p></details>
+  <details><summary>Does it work on Gemini videos?</summary><p>Not yet. Cleaning a video means cleaning every frame, which needs a much bigger server than this free tool runs on. For now it is photos only.</p></details>
+  <details><summary>Will the quality drop?</summary><p>The photo keeps its original size (very large photos are resized to a 2400px longest edge) and is saved at high quality. Only the corner area is rebuilt.</p></details>
+  <details><summary>Is it OK to remove the logo?</summary><p>Please use it on your own images. Removing the visible logo does not remove your responsibilities: the invisible AI marker remains, and platforms may still require an AI label when you publish.</p></details>
+</section>
+
+<script>
+(function(){
+  var form = document.getElementById('wmForm');
+  var fileIn = document.getElementById('wmFile');
+  var btn = document.getElementById('wmBtn');
+  var status = document.getElementById('wmStatus');
+  var err = document.getElementById('wmError');
+  var compare = document.getElementById('wmCompare');
+  var before = document.getElementById('wmBefore');
+  var after = document.getElementById('wmAfter');
+  var dl = document.getElementById('wmDownload');
+  var lastUrl = null;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!fileIn.files.length){ return; }
+    err.classList.add('hidden'); compare.classList.add('hidden'); dl.classList.add('hidden');
+    status.classList.remove('hidden'); btn.disabled = true;
+    before.src = URL.createObjectURL(fileIn.files[0]);
+    var fd = new FormData();
+    fd.append('image', fileIn.files[0]);
+    fetch('/api/remove-watermark', { method:'POST', body: fd })
+      .then(function(r){
+        if(!r.ok){ return r.json().then(function(j){ throw new Error(j.error || 'Something went wrong.'); }); }
+        return r.blob();
+      })
+      .then(function(blob){
+        if(lastUrl){ URL.revokeObjectURL(lastUrl); }
+        lastUrl = URL.createObjectURL(blob);
+        after.src = lastUrl;
+        dl.href = lastUrl;
+        dl.setAttribute('download', blob.type.indexOf('png') >= 0 ? 'snapfetch-clean.png' : 'snapfetch-clean.jpg');
+        compare.classList.remove('hidden'); dl.classList.remove('hidden');
+      })
+      .catch(function(ex){
+        err.textContent = ex.message || 'Something went wrong. Please try again.';
+        err.classList.remove('hidden');
+      })
+      .finally(function(){
+        status.classList.add('hidden'); btn.disabled = false;
+      });
+  });
+})();
+</script>
+{% endblock %}

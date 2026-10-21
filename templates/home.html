@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block title %}SnapFetch — Free Video Downloader for TikTok, Facebook, Instagram & YouTube{% endblock %}
-{% block description %}Download videos from TikTok, Facebook, Instagram, YouTube and X for free. Paste the link, pick a quality, and save the video or MP3 — no app and no account needed.{% endblock %}
+{% block description %}Download TikTok videos without watermark, plus videos from Facebook, Instagram, YouTube and X — free. Paste the link, pick a quality, and save the video or MP3 — no app and no account needed.{% endblock %}
 {% block content %}
 <section class="hero">
   <div class="wrap">
     <h1>Free Video Downloader</h1>
-    <p class="hero-sub">Paste a link from TikTok, Facebook, Instagram, YouTube or X — and save the video in seconds. No app to install, no account to create.</p>
+    <p class="hero-sub">Paste a link from TikTok, Facebook, Instagram, YouTube or X — and save the video in seconds. No app to install, no account to create. TikTok videos download <strong>without the watermark</strong> — the clean original file, exactly as the creator uploaded it.</p>
 
     <form id="fetchForm" class="fetch-form" autocomplete="off">
       <input type="url" id="urlInput" placeholder="Paste your video link here…" required>
@@ -57,13 +57,16 @@
     <div class="card"><h3>Completely free</h3><p>There is nothing to pay and no premium tier. Every format the original video offers is available to everyone.</p></div>
     <div class="card"><h3>No app, no account</h3><p>SnapFetch runs entirely in your browser. Nothing to install, and we never ask you to register or sign in.</p></div>
     <div class="card"><h3>Original quality</h3><p>Files are fetched directly from the source at the quality the creator uploaded, including HD when it is available.</p></div>
+    <div class="card"><h3>TikTok without watermark</h3><p>SnapFetch fetches the original file TikTok stores, so TikTok videos save clean — without the moving logo watermark you see when a video plays inside the app.</p></div>
     <div class="card"><h3>Video or MP3</h3><p>Save the full video, or grab just the sound as an MP3 — handy for music, speeches and podcasts.</p></div>
+    <div class="card"><h3>Gemini photo cleaner</h3><p>Made a picture with Google Gemini? Our free <a href="{{ url_for('gemini_remover') }}">Gemini watermark remover</a> cleans the visible ✦ logo from the corner of your photo.</p></div>
   </div>
 </section>
 
 <section class="wrap content-section faq">
   <h2>Frequently asked questions</h2>
   <details><summary>Is SnapFetch free?</summary><p>Yes. SnapFetch is free to use, with no limits on how many videos you save. The site is supported by advertising.</p></details>
+  <details><summary>Do TikTok downloads have a watermark?</summary><p>No. TikTok adds its logo watermark when a video plays inside the app, but the original file is stored without it. SnapFetch fetches that original file, so your download is clean. Videos you save from Facebook, Instagram, YouTube and X come exactly as their platforms store them too.</p></details>
   <details><summary>Which sites are supported?</summary><p>TikTok, Facebook (including Reels), Instagram (Reels and posts), YouTube (including Shorts) and X. If a platform changes something, a link may stop working for a while — try again later.</p></details>
   <details><summary>Can I download private videos?</summary><p>No. SnapFetch can only fetch videos that are publicly viewable. If a video is private or friends-only, it cannot be downloaded here.</p></details>
   <details><summary>Where do downloaded videos go?</summary><p>They save to your device's Downloads folder, like any other file from your browser.</p></details>
