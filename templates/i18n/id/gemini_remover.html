@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block html_lang %}id{% endblock %}
+{% block html_dir %}ltr{% endblock %}
+{% block nav_home %}Beranda{% endblock %}
+{% block nav_tiktok %}Panduan TikTok{% endblock %}
+{% block nav_facebook %}Panduan Facebook{% endblock %}
+{% block nav_gemini %}Penghapus Gemini{% endblock %}
+{% block nav_about %}Tentang{% endblock %}
+{% block nav_contact %}Kontak{% endblock %}
+{% block footer_blurb %}Pengunduh video sederhana dan gratis untuk TikTok, Facebook, Instagram, YouTube, dan X. Tanpa daftar, tanpa perlu memasang perangkat lunak — cukup tempel tautan.{% endblock %}
+{% block fh_guides %}Panduan{% endblock %}
+{% block fl_guide_tiktok %}Unduh video TikTok{% endblock %}
+{% block fl_guide_facebook %}Unduh video Facebook{% endblock %}
+{% block fl_guide_gemini %}Hapus watermark Gemini{% endblock %}
+{% block fl_guide_home %}Pengunduh video{% endblock %}
+{% block fh_company %}Perusahaan{% endblock %}
+{% block fl_about %}Tentang{% endblock %}
+{% block fl_contact %}Kontak{% endblock %}
+{% block fh_legal %}Hukum{% endblock %}
+{% block fl_privacy %}Kebijakan Privasi{% endblock %}
+{% block fl_terms %}Ketentuan Penggunaan{% endblock %}
+{% block fl_dmca %}DMCA / Hak Cipta{% endblock %}
+{% block footer_rights %}SnapFetch tidak menyimpan video apa pun. Semua media adalah milik pemiliknya masing-masing. Unduh hanya konten yang Anda miliki atau yang Anda punya izin untuk menggunakannya.{% endblock %}
+{% block sw_label %}Bahasa:{% endblock %}
+{% block title %}Penghapus Watermark Gemini — Bersihkan Logo ✦ dari Foto AI | SnapFetch{% endblock %}
+{% block description %}Alat online gratis untuk menghapus logo sparkle Gemini yang terlihat di sudut foto hasil AI Anda. Unggah foto, lalu unduh salinan bersihnya dalam hitungan detik — tanpa daftar, dan gambar Anda tidak pernah disimpan.{% endblock %}
+{% block head %}
+<style>
+  .uploader { background:#fff; border:1px solid #e5e1f8; border-radius:16px; padding:22px; margin-top:22px; text-align:center; }
+  .uploader input[type=file] { display:block; margin:14px auto; max-width:100%; }
+  .clean-btn { background:#6c4cf1; color:#fff; border:0; border-radius:10px; padding:13px 28px; font-size:1rem; font-weight:600; cursor:pointer; }
+  .clean-btn:disabled { opacity:.55; cursor:wait; }
+  .compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+  .compare figure { margin:0; }
+  .compare img { width:100%; border-radius:12px; border:1px solid #e5e1f8; display:block; }
+  .compare figcaption { font-size:.85rem; color:#666; margin-top:6px; text-align:center; }
+  @media (max-width:640px){ .compare{ grid-template-columns:1fr; } }
+  .dl-btn { display:inline-block; margin-top:14px; background:#16a34a; color:#fff; text-decoration:none; border-radius:10px; padding:13px 28px; font-weight:600; }
+</style>
+{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Penghapus Watermark Gemini</h1>
+    <p class="hero-sub">Google Gemini membubuhkan logo sparkle ✦ kecil di sudut setiap foto yang dibuatnya. Unggah foto Anda di sini dan SnapFetch akan membersihkan logo yang terlihat itu — gratis, dalam hitungan detik, dan gambar Anda tidak pernah disimpan.</p>
+
+    <div class="uploader">
+      <form id="wmForm">
+        <input type="file" id="wmFile" accept="image/*" required>
+        <button type="submit" class="clean-btn" id="wmBtn">Hapus logonya</button>
+      </form>
+      <div id="wmStatus" class="status-box hidden" role="status">
+        <span class="spinner"></span><span>Membersihkan foto Anda…</span>
+      </div>
+      <div id="wmError" class="error-box hidden" role="alert"></div>
+      <div class="compare hidden" id="wmCompare">
+        <figure>
+          <img id="wmBefore" alt="Foto asli Anda">
+          <figcaption>Sebelum</figcaption>
+        </figure>
+        <figure>
+          <img id="wmAfter" alt="Foto Anda dengan logo Gemini yang sudah dibersihkan">
+          <figcaption>Sesudah</figcaption>
+        </figure>
+      </div>
+      <a id="wmDownload" class="dl-btn hidden" href="#" download="snapfetch-clean.jpg">Unduh foto bersih</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Cara kerjanya</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Unggah foto Anda</h3><p>Pilih foto JPG, PNG, atau WebP yang dibuat Gemini (maksimal 16 MB).</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Kami membersihkan sudutnya</h3><p>Sudut yang memuat logo ✦ dibangun ulang dari gambar di sekitarnya, sehingga logo itu menyatu dan hilang ke dalam gambar.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Unduh salinan bersihnya</h3><p>Pratinjau hasilnya dan simpan. Foto asli tetap utuh di perangkat Anda.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Perlu diketahui</h2>
+  <div class="cards">
+    <div class="card"><h3>Hanya logo yang terlihat</h3><p>Alat ini membersihkan sparkle yang bisa Anda lihat di sudut. Gemini juga menyematkan penanda AI yang tidak terlihat (SynthID) di dalam file — penanda itu tetap ada, jadi gambar tetap dapat dikenali sebagai buatan AI.</p></div>
+    <div class="card"><h3>Foto Anda tidak disimpan</h3><p>Gambar diproses dalam memori dan salinan bersihnya dikirim langsung kembali kepada Anda. Tidak ada yang disimpan di server kami.</p></div>
+    <div class="card"><h3>Paling bagus untuk ekspor Gemini</h3><p>Alat ini mengharapkan logo berada di sudut kanan bawah, tempat Gemini meletakkannya. Jika sudut foto Anda memuat sesuatu yang penting, bagian itu akan dibangun ulang juga — periksa pratinjaunya.</p></div>
+    <div class="card"><h3>Beri label pada konten AI</h3><p>Platform seperti TikTok dan Instagram meminta Anda memberi label pada konten buatan AI saat mempostingnya. Sudut yang sudah dibersihkan tidak mengubah hal itu — mohon ikuti aturan masing-masing platform.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Pertanyaan yang sering diajukan</h2>
+  <details><summary>Apakah ini gratis?</summary><p>Ya, sepenuhnya gratis — tanpa akun, tanpa batas untuk penggunaan normal.</p></details>
+  <details><summary>Apakah ini bekerja untuk video Gemini?</summary><p>Belum. Membersihkan video berarti membersihkan setiap frame, yang membutuhkan server jauh lebih besar daripada yang dipakai alat gratis ini. Untuk saat ini hanya foto.</p></details>
+  <details><summary>Apakah kualitasnya akan menurun?</summary><p>Foto mempertahankan ukuran aslinya (foto yang sangat besar diubah ukurannya menjadi sisi terpanjang 2400px) dan disimpan dalam kualitas tinggi. Hanya area sudut yang dibangun ulang.</p></details>
+  <details><summary>Bolehkah menghapus logo itu?</summary><p>Gunakanlah pada gambar Anda sendiri. Menghapus logo yang terlihat tidak menghapus tanggung jawab Anda: penanda AI yang tidak terlihat tetap ada, dan platform mungkin tetap mewajibkan label AI saat Anda mempublikasikannya.</p></details>
+</section>
+
+<script>
+(function(){
+  var form = document.getElementById('wmForm');
+  var fileIn = document.getElementById('wmFile');
+  var btn = document.getElementById('wmBtn');
+  var status = document.getElementById('wmStatus');
+  var err = document.getElementById('wmError');
+  var compare = document.getElementById('wmCompare');
+  var before = document.getElementById('wmBefore');
+  var after = document.getElementById('wmAfter');
+  var dl = document.getElementById('wmDownload');
+  var lastUrl = null;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!fileIn.files.length){ return; }
+    err.classList.add('hidden'); compare.classList.add('hidden'); dl.classList.add('hidden');
+    status.classList.remove('hidden'); btn.disabled = true;
+    before.src = URL.createObjectURL(fileIn.files[0]);
+    var fd = new FormData();
+    fd.append('image', fileIn.files[0]);
+    fetch('/api/remove-watermark', { method:'POST', body: fd })
+      .then(function(r){
+        if(!r.ok){ return r.json().then(function(j){ throw new Error(j.error || 'Terjadi kesalahan.'); }); }
+        return r.blob();
+      })
+      .then(function(blob){
+        if(lastUrl){ URL.revokeObjectURL(lastUrl); }
+        lastUrl = URL.createObjectURL(blob);
+        after.src = lastUrl;
+        dl.href = lastUrl;
+        dl.setAttribute('download', blob.type.indexOf('png') >= 0 ? 'snapfetch-clean.png' : 'snapfetch-clean.jpg');
+        compare.classList.remove('hidden'); dl.classList.remove('hidden');
+      })
+      .catch(function(ex){
+        err.textContent = ex.message || 'Terjadi kesalahan. Silakan coba lagi.';
+        err.classList.remove('hidden');
+      })
+      .finally(function(){
+        status.classList.add('hidden'); btn.disabled = false;
+      });
+  });
+})();
+</script>
+{% endblock %}

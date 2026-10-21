@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block title %}إزالة العلامة المائية من Gemini — نظّف شعار ✦ من صور الذكاء الاصطناعي | SnapFetch{% endblock %}
+{% block description %}أداة مجانية عبر الإنترنت لإزالة شعار Gemini اللامع الظاهر من زاوية صورك المولّدة بالذكاء الاصطناعي. ارفع صورة وحمّل نسخة نظيفة في ثوانٍ — بدون تسجيل، وصورتك لا تُخزّن أبدًا.{% endblock %}
+{% block html_lang %}ar{% endblock %}
+{% block html_dir %}rtl{% endblock %}
+{% block nav_home %}الرئيسية{% endblock %}
+{% block nav_tiktok %}دليل TikTok{% endblock %}
+{% block nav_facebook %}دليل Facebook{% endblock %}
+{% block nav_gemini %}إزالة علامة Gemini{% endblock %}
+{% block nav_about %}من نحن{% endblock %}
+{% block nav_contact %}اتصل بنا{% endblock %}
+{% block footer_blurb %}أداة بسيطة ومجانية لتحميل الفيديوهات من TikTok وFacebook وInstagram وYouTube وX. بدون تسجيل وبدون تثبيت أي برنامج — الصق الرابط فقط.{% endblock %}
+{% block fh_guides %}الأدلة{% endblock %}
+{% block fl_guide_tiktok %}تحميل فيديوهات TikTok{% endblock %}
+{% block fl_guide_facebook %}تحميل فيديوهات Facebook{% endblock %}
+{% block fl_guide_gemini %}إزالة العلامة المائية من Gemini{% endblock %}
+{% block fl_guide_home %}أداة تحميل الفيديو{% endblock %}
+{% block fh_company %}الشركة{% endblock %}
+{% block fl_about %}من نحن{% endblock %}
+{% block fl_contact %}اتصل بنا{% endblock %}
+{% block fh_legal %}قانوني{% endblock %}
+{% block fl_privacy %}سياسة الخصوصية{% endblock %}
+{% block fl_terms %}شروط الاستخدام{% endblock %}
+{% block fl_dmca %}DMCA / حقوق النشر{% endblock %}
+{% block footer_rights %}لا يستضيف SnapFetch أي فيديوهات. جميع الوسائط ملك لأصحابها. يُرجى تحميل المحتوى الذي تملكه أو لديك إذن باستخدامه فقط.{% endblock %}
+{% block sw_label %}اللغة:{% endblock %}
+{% block head %}
+<style>
+  .uploader { background:#fff; border:1px solid #e5e1f8; border-radius:16px; padding:22px; margin-top:22px; text-align:center; }
+  .uploader input[type=file] { display:block; margin:14px auto; max-width:100%; }
+  .clean-btn { background:#6c4cf1; color:#fff; border:0; border-radius:10px; padding:13px 28px; font-size:1rem; font-weight:600; cursor:pointer; }
+  .clean-btn:disabled { opacity:.55; cursor:wait; }
+  .compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+  .compare figure { margin:0; }
+  .compare img { width:100%; border-radius:12px; border:1px solid #e5e1f8; display:block; }
+  .compare figcaption { font-size:.85rem; color:#666; margin-top:6px; text-align:center; }
+  @media (max-width:640px){ .compare{ grid-template-columns:1fr; } }
+  .dl-btn { display:inline-block; margin-top:14px; background:#16a34a; color:#fff; text-decoration:none; border-radius:10px; padding:13px 28px; font-weight:600; }
+</style>
+{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>إزالة العلامة المائية من Gemini</h1>
+    <p class="hero-sub">يختم Google Gemini كل صورة يصنعها بشعار ✦ لامع صغير في الزاوية. ارفع صورتك هنا وسينظّف SnapFetch ذلك الشعار الظاهر — مجانًا، وفي ثوانٍ، وصورتك لا تُخزّن أبدًا.</p>
+
+    <div class="uploader">
+      <form id="wmForm">
+        <input type="file" id="wmFile" accept="image/*" required>
+        <button type="submit" class="clean-btn" id="wmBtn">إزالة الشعار</button>
+      </form>
+      <div id="wmStatus" class="status-box hidden" role="status">
+        <span class="spinner"></span><span>جارٍ تنظيف صورتك…</span>
+      </div>
+      <div id="wmError" class="error-box hidden" role="alert"></div>
+      <div class="compare hidden" id="wmCompare">
+        <figure>
+          <img id="wmBefore" alt="صورتك الأصلية">
+          <figcaption>قبل</figcaption>
+        </figure>
+        <figure>
+          <img id="wmAfter" alt="صورتك بعد تنظيف شعار Gemini">
+          <figcaption>بعد</figcaption>
+        </figure>
+      </div>
+      <a id="wmDownload" class="dl-btn hidden" href="#" download="snapfetch-clean.jpg">تحميل الصورة النظيفة</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>كيف تعمل الأداة؟</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>ارفع صورتك</h3><p>اختر صورة JPG أو PNG أو WebP صنعها Gemini (حتى 16 MB).</p></div>
+    <div class="step"><div class="step-n">2</div><h3>ننظّف الزاوية</h3><p>تُعاد بناء الزاوية التي تحمل شعار ✦ من الصورة المحيطة بها، فيختفي الشعار داخل الصورة.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>حمّل النسخة النظيفة</h3><p>عاين النتيجة واحفظها. يبقى الأصل كما هو على جهازك.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>من الجيد أن تعرف</h2>
+  <div class="cards">
+    <div class="card"><h3>الشعار الظاهر فقط</h3><p>تنظّف هذه الأداة اللمعة التي تراها في الزاوية. يضمّن Gemini أيضًا علامة ذكاء اصطناعي غير مرئية (SynthID) داخل الملف — وهي تبقى، لتبقى الصورة قابلة للتعرف عليها على أنها مصنوعة بالذكاء الاصطناعي.</p></div>
+    <div class="card"><h3>صورتك لا تُخزّن</h3><p>تُعالج الصورة في الذاكرة وتُرسل النسخة النظيفة إليك مباشرة. لا يُحفظ أي شيء على خادمنا.</p></div>
+    <div class="card"><h3>الأفضل مع صادرات Gemini</h3><p>تتوقع الأداة أن يكون الشعار في الزاوية السفلية اليمنى، حيث يضعه Gemini. إذا كانت زاوية صورتك تحمل شيئًا مهمًا، فستُعاد بناؤه أيضًا — تحقق من المعاينة.</p></div>
+    <div class="card"><h3>وسّم محتوى الذكاء الاصطناعي</h3><p>تطلب منصات مثل TikTok وInstagram منك وسم المحتوى المولّد بالذكاء الاصطناعي عند نشره. الزاوية النظيفة لا تغيّر ذلك — يُرجى اتباع قواعد كل منصة.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>الأسئلة الشائعة</h2>
+  <details><summary>هل هذه الأداة مجانية؟</summary><p>نعم، مجانية بالكامل — بدون حساب، وبدون حدود للاستخدام العادي.</p></details>
+  <details><summary>هل تعمل على فيديوهات Gemini؟</summary><p>ليس بعد. تنظيف فيديو يعني تنظيف كل إطار، وهذا يحتاج إلى خادم أكبر بكثير مما تعمل عليه هذه الأداة المجانية. حاليًا الصور فقط.</p></details>
+  <details><summary>هل ستقل الجودة؟</summary><p>تحتفظ الصورة بحجمها الأصلي (تُعاد تهيئة الصور الكبيرة جدًا إلى حافة أطول 2400px) وتُحفظ بجودة عالية. تُعاد بناء منطقة الزاوية فقط.</p></details>
+  <details><summary>هل يجوز إزالة الشعار؟</summary><p>يُرجى استخدام الأداة على صورك الخاصة. إزالة الشعار الظاهر لا ترفع عنك مسؤولياتك: تبقى علامة الذكاء الاصطناعي غير المرئية، وقد تطلب المنصات وسمًا للذكاء الاصطناعي عند النشر.</p></details>
+</section>
+
+<script>
+(function(){
+  var form = document.getElementById('wmForm');
+  var fileIn = document.getElementById('wmFile');
+  var btn = document.getElementById('wmBtn');
+  var status = document.getElementById('wmStatus');
+  var err = document.getElementById('wmError');
+  var compare = document.getElementById('wmCompare');
+  var before = document.getElementById('wmBefore');
+  var after = document.getElementById('wmAfter');
+  var dl = document.getElementById('wmDownload');
+  var lastUrl = null;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!fileIn.files.length){ return; }
+    err.classList.add('hidden'); compare.classList.add('hidden'); dl.classList.add('hidden');
+    status.classList.remove('hidden'); btn.disabled = true;
+    before.src = URL.createObjectURL(fileIn.files[0]);
+    var fd = new FormData();
+    fd.append('image', fileIn.files[0]);
+    fetch('/api/remove-watermark', { method:'POST', body: fd })
+      .then(function(r){
+        if(!r.ok){ return r.json().then(function(j){ throw new Error(j.error || 'حدث خطأ ما.'); }); }
+        return r.blob();
+      })
+      .then(function(blob){
+        if(lastUrl){ URL.revokeObjectURL(lastUrl); }
+        lastUrl = URL.createObjectURL(blob);
+        after.src = lastUrl;
+        dl.href = lastUrl;
+        dl.setAttribute('download', blob.type.indexOf('png') >= 0 ? 'snapfetch-clean.png' : 'snapfetch-clean.jpg');
+        compare.classList.remove('hidden'); dl.classList.remove('hidden');
+      })
+      .catch(function(ex){
+        err.textContent = ex.message || 'حدث خطأ ما. يُرجى المحاولة مرة أخرى.';
+        err.classList.remove('hidden');
+      })
+      .finally(function(){
+        status.classList.add('hidden'); btn.disabled = false;
+      });
+  });
+})();
+</script>
+{% endblock %}

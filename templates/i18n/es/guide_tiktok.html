@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block html_lang %}es{% endblock %}
+{% block html_dir %}ltr{% endblock %}
+{% block nav_home %}Inicio{% endblock %}
+{% block nav_tiktok %}Guía de TikTok{% endblock %}
+{% block nav_facebook %}Guía de Facebook{% endblock %}
+{% block nav_gemini %}Quitar marca de Gemini{% endblock %}
+{% block nav_about %}Acerca de{% endblock %}
+{% block nav_contact %}Contacto{% endblock %}
+{% block footer_blurb %}Un descargador de videos sencillo y gratuito para TikTok, Facebook, Instagram, YouTube y X. Sin registro, sin instalar ningún programa: solo pega un enlace.{% endblock %}
+{% block fh_guides %}Guías{% endblock %}
+{% block fl_guide_tiktok %}Descargar videos de TikTok{% endblock %}
+{% block fl_guide_facebook %}Descargar videos de Facebook{% endblock %}
+{% block fl_guide_gemini %}Quitar la marca de agua de Gemini{% endblock %}
+{% block fl_guide_home %}Descargador de videos{% endblock %}
+{% block fh_company %}Empresa{% endblock %}
+{% block fl_about %}Acerca de{% endblock %}
+{% block fl_contact %}Contacto{% endblock %}
+{% block fh_legal %}Legal{% endblock %}
+{% block fl_privacy %}Política de privacidad{% endblock %}
+{% block fl_terms %}Términos de uso{% endblock %}
+{% block fl_dmca %}DMCA / Derechos de autor{% endblock %}
+{% block footer_rights %}SnapFetch no aloja ningún video. Todo el contenido pertenece a sus respectivos propietarios. Descarga solo contenido que sea tuyo o que tengas permiso para usar.{% endblock %}
+{% block sw_label %}Idioma:{% endblock %}
+{% block title %}Cómo descargar videos de TikTok sin marca de agua — Guía paso a paso | SnapFetch{% endblock %}
+{% block description %}Aprende a descargar videos de TikTok sin marca de agua en tu teléfono o computadora en unos sencillos pasos. Guarda TikToks limpios para verlos sin conexión, haz una copia de seguridad de tus propias publicaciones o extrae el audio en MP3.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>Cómo descargar videos de TikTok sin marca de agua</h1>
+  <p class="article-intro">TikTok está lleno de videos que vale la pena guardar: una receta que quieres probar, un tutorial de baile o una de tus propias publicaciones que quieres respaldar en un lugar seguro. El botón de guardar de TikTok no siempre aparece, y los videos guardados se quedan dentro de la aplicación. Esta guía muestra la forma más sencilla de descargar un video de TikTok en tu propio dispositivo con SnapFetch, una herramienta gratuita que funciona en cualquier navegador — y como SnapFetch obtiene el archivo original, el video se guarda <strong>sin la marca de agua de TikTok</strong>.</p>
+
+  <h2>Por qué las descargas de SnapFetch no tienen marca de agua</h2>
+  <p>El logo de TikTok en movimiento que ves en un video en reproducción lo añade la aplicación en el momento de reproducirlo: no forma parte del archivo de video en sí. SnapFetch descarga el archivo original almacenado en los servidores de TikTok, antes de que se añada ese logo, así que el video que guardas queda limpio: sin logo que rebota y sin el nombre de usuario estampado. El mismo truco no puede eliminar una marca de agua que un creador haya incrustado en el video antes de subirlo: ese tipo de marca sí forma parte de la imagen misma.</p>
+
+  <h2>Paso a paso: descarga cualquier video público de TikTok</h2>
+  <ol class="guide-steps">
+    <li><strong>Encuentra el video.</strong> Abre TikTok y ve al video que quieres guardar.</li>
+    <li><strong>Toca el botón Compartir.</strong> Es el icono de la flecha que está a la derecha del video.</li>
+    <li><strong>Elige «Copiar enlace».</strong> La dirección web del video ya está en tu portapapeles.</li>
+    <li><strong>Abre SnapFetch.</strong> Ve a la <a href="{{ url_for('home_lang', lang='es') }}">página principal de SnapFetch</a> en tu navegador: no necesitas instalar ninguna aplicación.</li>
+    <li><strong>Pega el enlace</strong> en el cuadro grande de la parte superior y pulsa <strong>Descargar</strong>.</li>
+    <li><strong>Elige tu formato.</strong> Elige una calidad de video, o MP3 si solo quieres el sonido. El archivo se guardará directamente en tu dispositivo.</li>
+  </ol>
+
+  <h2>Descargar en iPhone</h2>
+  <p>En un iPhone, los pasos son los mismos, pero el destino del archivo depende de tu navegador. En Safari, los videos descargados van a la aplicación Archivos, en Descargas. Si quieres el video en tu biblioteca de Fotos, ábrelo en Archivos, toca el icono Compartir y elige «Guardar video».</p>
+
+  <h2>Descargar en Android</h2>
+  <p>En Android, Chrome y la mayoría de los navegadores guardan el archivo en tu carpeta de Descargas. Puedes abrirlo desde la notificación que aparece cuando termina la descarga, o encontrarlo después en tu galería o administrador de archivos.</p>
+
+  <h2>Descargar en una computadora</h2>
+  <p>En una PC o Mac, copiar el enlace es aún más fácil: abre el video de TikTok en tu navegador y copia la dirección de la barra de direcciones. Pégala en SnapFetch, elige un formato y el archivo se descargará como cualquier otro archivo de la web.</p>
+
+  <h2>Consejos para obtener mejores resultados</h2>
+  <ul>
+    <li><strong>Usa el enlace completo.</strong> Si un enlace acortado falla, ábrelo una vez en tu navegador para que se expanda a la dirección completa del video, y luego copia esa dirección.</li>
+    <li><strong>Elige la calidad que necesitas.</strong> Mayor calidad significa un archivo más grande. Si solo planeas verlo en tu teléfono, una opción intermedia suele ser más que suficiente.</li>
+    <li><strong>Respalda tus propios videos.</strong> Descargar tus propias publicaciones es la forma más fácil de conservar una copia original fuera de la aplicación, anterior a cualquier edición o texto añadido en TikTok.</li>
+    <li><strong>Revisa tu almacenamiento.</strong> Un teléfono lleno puede detener las descargas sin avisar. Si una descarga falla sin razón aparente, libera un poco de espacio e inténtalo de nuevo.</li>
+  </ul>
+
+  <h2>Preguntas frecuentes</h2>
+  <div class="faq">
+    <details><summary>¿Puedo descargar un TikTok privado?</summary><p>No. SnapFetch solo puede obtener videos que cualquiera pueda ver públicamente. Los videos privados y los de solo amigos no se pueden descargar.</p></details>
+    <details><summary>¿El video realmente no tendrá marca de agua?</summary><p>Sí, siempre que la marca de agua sea el logo de reproducción propio de TikTok. SnapFetch obtiene el archivo original almacenado, que no la lleva. Si un creador editó un logo o un texto dentro del propio video antes de subirlo, eso forma parte del video y se queda.</p></details>
+    <details><summary>¿Puedo descargar solo el sonido de un TikTok?</summary><p>Sí. Después de pegar el enlace, elige la opción MP3 en la sección de Audio y se guardará solo el audio.</p></details>
+    <details><summary>¿Necesito una cuenta de TikTok para usar SnapFetch?</summary><p>No. No necesitas iniciar sesión en TikTok ni en SnapFetch. Solo necesitas el enlace a un video público.</p></details>
+    <details><summary>¿Hay un límite de descargas?</summary><p>No tienes cuenta con nosotros ni hay un límite diario. Un número muy alto de solicitudes en poco tiempo puede ralentizarse para que la herramienta siga siendo rápida para todos.</p></details>
+    <details><summary>¿Está permitido descargar videos de TikTok?</summary><p>Descargar está bien para tus propios videos y para contenido que tengas permiso de guardar, para uso personal. Los videos pertenecen a sus creadores: por favor, no vuelvas a subir el trabajo de otra persona como si fuera tuyo. Nuestros <a href="{{ url_for('terms') }}">Términos de uso</a> lo explican con más detalle.</p></details>
+  </div>
+</article>
+{% endblock %}

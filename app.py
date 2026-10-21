@@ -109,14 +109,49 @@ def format_label(f):
 # Pages
 # ---------------------------------------------------------------------------
 
+LANGS = {
+    "id": "Bahasa Indonesia",
+    "pt": "Português",
+    "es": "Español",
+    "vi": "Tiếng Việt",
+    "tr": "Türkçe",
+    "ar": "العربية",
+}
+
+
+@app.context_processor
+def _lang_ctx():
+    return {"LANG_LIST": list(LANGS), "LANG_NAMES": LANGS}
+
+
+def _lang_or_404(lang):
+    if lang not in LANGS:
+        abort(404)
+    return lang
+
+
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", page_key="home")
+
+
+@app.route("/<lang>/")
+def home_lang(lang):
+    _lang_or_404(lang)
+    return render_template(f"i18n/{lang}/home.html",
+                           page_key="home", lang=lang)
 
 
 @app.route("/how-to-download-tiktok-videos")
 def guide_tiktok():
-    return render_template("guide_tiktok.html")
+    return render_template("guide_tiktok.html", page_key="guide")
+
+
+@app.route("/<lang>/how-to-download-tiktok-videos")
+def guide_tiktok_lang(lang):
+    _lang_or_404(lang)
+    return render_template(f"i18n/{lang}/guide_tiktok.html",
+                           page_key="guide", lang=lang)
 
 
 @app.route("/how-to-download-facebook-videos")
@@ -151,7 +186,14 @@ def contact():
 
 @app.route("/gemini-watermark-remover")
 def gemini_remover():
-    return render_template("gemini_remover.html")
+    return render_template("gemini_remover.html", page_key="gemini")
+
+
+@app.route("/<lang>/gemini-watermark-remover")
+def gemini_remover_lang(lang):
+    _lang_or_404(lang)
+    return render_template(f"i18n/{lang}/gemini_remover.html",
+                           page_key="gemini", lang=lang)
 
 
 @app.route("/favicon.ico")
@@ -177,6 +219,9 @@ def sitemap():
     pages = ["/", "/how-to-download-tiktok-videos",
              "/how-to-download-facebook-videos", "/gemini-watermark-remover",
              "/about", "/privacy-policy", "/terms", "/dmca", "/contact"]
+    for lg in LANGS:
+        pages += [f"/{lg}/", f"/{lg}/how-to-download-tiktok-videos",
+                  f"/{lg}/gemini-watermark-remover"]
     urls = "".join(
         f"<url><loc>{request.url_root.rstrip('/')}{p}</loc></url>"
         for p in pages)

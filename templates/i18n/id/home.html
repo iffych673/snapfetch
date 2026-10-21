@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block html_lang %}id{% endblock %}
+{% block html_dir %}ltr{% endblock %}
+{% block nav_home %}Beranda{% endblock %}
+{% block nav_tiktok %}Panduan TikTok{% endblock %}
+{% block nav_facebook %}Panduan Facebook{% endblock %}
+{% block nav_gemini %}Penghapus Gemini{% endblock %}
+{% block nav_about %}Tentang{% endblock %}
+{% block nav_contact %}Kontak{% endblock %}
+{% block footer_blurb %}Pengunduh video sederhana dan gratis untuk TikTok, Facebook, Instagram, YouTube, dan X. Tanpa daftar, tanpa perlu memasang perangkat lunak — cukup tempel tautan.{% endblock %}
+{% block fh_guides %}Panduan{% endblock %}
+{% block fl_guide_tiktok %}Unduh video TikTok{% endblock %}
+{% block fl_guide_facebook %}Unduh video Facebook{% endblock %}
+{% block fl_guide_gemini %}Hapus watermark Gemini{% endblock %}
+{% block fl_guide_home %}Pengunduh video{% endblock %}
+{% block fh_company %}Perusahaan{% endblock %}
+{% block fl_about %}Tentang{% endblock %}
+{% block fl_contact %}Kontak{% endblock %}
+{% block fh_legal %}Hukum{% endblock %}
+{% block fl_privacy %}Kebijakan Privasi{% endblock %}
+{% block fl_terms %}Ketentuan Penggunaan{% endblock %}
+{% block fl_dmca %}DMCA / Hak Cipta{% endblock %}
+{% block footer_rights %}SnapFetch tidak menyimpan video apa pun. Semua media adalah milik pemiliknya masing-masing. Unduh hanya konten yang Anda miliki atau yang Anda punya izin untuk menggunakannya.{% endblock %}
+{% block sw_label %}Bahasa:{% endblock %}
+{% block title %}SnapFetch — Pengunduh Video Gratis untuk TikTok, Facebook, Instagram & YouTube{% endblock %}
+{% block description %}Unduh video TikTok tanpa watermark, plus video dari Facebook, Instagram, YouTube dan X — gratis. Tempel tautannya, pilih kualitas, dan simpan video atau MP3-nya — tanpa aplikasi dan tanpa akun.{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Pengunduh Video Gratis</h1>
+    <p class="hero-sub">Tempel tautan dari TikTok, Facebook, Instagram, YouTube, atau X — dan simpan videonya dalam hitungan detik. Tanpa aplikasi yang perlu dipasang, tanpa akun yang perlu dibuat. Video TikTok terunduh <strong>tanpa watermark</strong> — file asli yang bersih, persis seperti yang diunggah kreatornya.</p>
+
+    <form id="fetchForm" class="fetch-form" autocomplete="off">
+      <input type="url" id="urlInput" placeholder="Tempel tautan video Anda di sini…" required>
+      <button type="submit" id="fetchBtn">Unduh</button>
+    </form>
+    <div id="statusBox" class="status-box hidden" role="status">
+      <span class="spinner" id="spinner"></span><span id="statusText">Mengambil video Anda…</span>
+    </div>
+    <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-media">
+        <img id="resThumb" alt="Thumbnail video">
+      </div>
+      <div class="result-body">
+        <p class="result-platform" id="resPlatform"></p>
+        <h2 class="result-title" id="resTitle"></h2>
+        <p class="result-meta" id="resMeta"></p>
+        <div class="fmt-group">
+          <h3>Video</h3>
+          <div id="videoFormats" class="fmt-list"></div>
+        </div>
+        <div class="fmt-group">
+          <h3>Audio</h3>
+          <div id="audioFormats" class="fmt-list"></div>
+        </div>
+        <p class="result-note">Setiap unduhan diambil langsung dari sumber aslinya. SnapFetch tidak pernah menyimpan video.</p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span>TikTok</span><span>Facebook</span><span>Instagram</span><span>YouTube</span><span>X (Twitter)</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Cara kerjanya</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Salin tautannya</h3><p>Buka video di aplikasi atau browser Anda, ketuk Bagikan, lalu pilih “Salin tautan”.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Tempel di atas</h3><p>Tempel tautan ke kotak di bagian atas halaman ini, lalu tekan Unduh.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Pilih kualitas &amp; simpan</h3><p>Pilih kualitas video yang Anda mau — atau MP3 jika hanya suaranya — dan file akan tersimpan ke perangkat Anda.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Kenapa banyak orang memakai SnapFetch</h2>
+  <div class="cards">
+    <div class="card"><h3>Sepenuhnya gratis</h3><p>Tidak ada yang perlu dibayar dan tidak ada versi premium. Semua format yang tersedia pada video aslinya bisa diakses semua orang.</p></div>
+    <div class="card"><h3>Tanpa aplikasi, tanpa akun</h3><p>SnapFetch berjalan sepenuhnya di browser Anda. Tidak ada yang perlu dipasang, dan kami tidak pernah meminta Anda mendaftar atau masuk.</p></div>
+    <div class="card"><h3>Kualitas asli</h3><p>File diambil langsung dari sumbernya dengan kualitas yang diunggah kreator, termasuk HD jika tersedia.</p></div>
+    <div class="card"><h3>TikTok tanpa watermark</h3><p>SnapFetch mengambil file asli yang disimpan TikTok, jadi video TikTok tersimpan bersih — tanpa watermark logo bergerak yang Anda lihat saat video diputar di aplikasi.</p></div>
+    <div class="card"><h3>Video atau MP3</h3><p>Simpan video lengkapnya, atau ambil suaranya saja sebagai MP3 — praktis untuk musik, pidato, dan podcast.</p></div>
+    <div class="card"><h3>Pembersih foto Gemini</h3><p>Membuat gambar dengan Google Gemini? <a href="{{ url_for('gemini_remover_lang', lang='id') }}">Penghapus watermark Gemini</a> gratis kami membersihkan logo ✦ yang terlihat di sudut foto Anda.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Pertanyaan yang sering diajukan</h2>
+  <details><summary>Apakah SnapFetch gratis?</summary><p>Ya. SnapFetch gratis digunakan, tanpa batas jumlah video yang bisa Anda simpan. Situs ini didukung oleh iklan.</p></details>
+  <details><summary>Apakah video TikTok yang diunduh ada watermark-nya?</summary><p>Tidak. TikTok menambahkan watermark logo saat video diputar di dalam aplikasi, tetapi file aslinya disimpan tanpa watermark. SnapFetch mengambil file asli itu, jadi unduhan Anda bersih. Video yang Anda simpan dari Facebook, Instagram, YouTube, dan X juga hadir persis seperti yang disimpan platform masing-masing.</p></details>
+  <details><summary>Situs apa saja yang didukung?</summary><p>TikTok, Facebook (termasuk Reels), Instagram (Reels dan postingan), YouTube (termasuk Shorts), dan X. Jika suatu platform mengubah sesuatu, tautan mungkin berhenti bekerja untuk sementara — coba lagi nanti.</p></details>
+  <details><summary>Bisakah saya mengunduh video privat?</summary><p>Tidak. SnapFetch hanya dapat mengambil video yang bisa dilihat publik. Jika video bersifat privat atau hanya untuk teman, video itu tidak bisa diunduh di sini.</p></details>
+  <details><summary>Ke mana video yang diunduh tersimpan?</summary><p>Video tersimpan di folder Unduhan (Downloads) perangkat Anda, sama seperti file lain dari browser.</p></details>
+  <details><summary>Bolehkah mengunduh video apa saja?</summary><p>Unduh hanya video yang Anda miliki, yang berada dalam domain publik, atau yang Anda punya izin dari kreatornya untuk menyimpannya, dan gunakan untuk keperluan pribadi. Lihat <a href="{{ url_for('terms') }}">Ketentuan Penggunaan</a> kami.</p></details>
+</section>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block html_lang %}pt{% endblock %}
+{% block html_dir %}ltr{% endblock %}
+{% block nav_home %}Início{% endblock %}
+{% block nav_tiktok %}Guia do TikTok{% endblock %}
+{% block nav_facebook %}Guia do Facebook{% endblock %}
+{% block nav_gemini %}Removedor do Gemini{% endblock %}
+{% block nav_about %}Sobre{% endblock %}
+{% block nav_contact %}Contato{% endblock %}
+{% block footer_blurb %}Um baixador de vídeos simples e gratuito para TikTok, Facebook, Instagram, YouTube e X. Sem cadastro, sem instalar nenhum programa — é só colar o link.{% endblock %}
+{% block fh_guides %}Guias{% endblock %}
+{% block fl_guide_tiktok %}Baixar vídeos do TikTok{% endblock %}
+{% block fl_guide_facebook %}Baixar vídeos do Facebook{% endblock %}
+{% block fl_guide_gemini %}Remover marca d'água do Gemini{% endblock %}
+{% block fl_guide_home %}Baixador de vídeos{% endblock %}
+{% block fh_company %}Empresa{% endblock %}
+{% block fl_about %}Sobre{% endblock %}
+{% block fl_contact %}Contato{% endblock %}
+{% block fh_legal %}Jurídico{% endblock %}
+{% block fl_privacy %}Política de Privacidade{% endblock %}
+{% block fl_terms %}Termos de Uso{% endblock %}
+{% block fl_dmca %}DMCA / Direitos Autorais{% endblock %}
+{% block footer_rights %}O SnapFetch não hospeda nenhum vídeo. Todo o conteúdo pertence aos seus respectivos donos. Baixe apenas conteúdo que seja seu ou que você tenha permissão para usar.{% endblock %}
+{% block sw_label %}Idioma:{% endblock %}
+{% block title %}SnapFetch — Baixador de Vídeos Grátis para TikTok, Facebook, Instagram e YouTube{% endblock %}
+{% block description %}Baixe vídeos do TikTok sem marca d'água, além de vídeos do Facebook, Instagram, YouTube e X — grátis. Cole o link, escolha a qualidade e salve o vídeo ou o MP3 — sem aplicativo e sem conta.{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Baixador de Vídeos Grátis</h1>
+    <p class="hero-sub">Cole um link do TikTok, Facebook, Instagram, YouTube ou X — e salve o vídeo em segundos. Sem aplicativo para instalar, sem conta para criar. Os vídeos do TikTok são baixados <strong>sem a marca d'água</strong> — o arquivo original e limpo, exatamente como o criador enviou.</p>
+
+    <form id="fetchForm" class="fetch-form" autocomplete="off">
+      <input type="url" id="urlInput" placeholder="Cole o link do seu vídeo aqui…" required>
+      <button type="submit" id="fetchBtn">Baixar</button>
+    </form>
+    <div id="statusBox" class="status-box hidden" role="status">
+      <span class="spinner" id="spinner"></span><span id="statusText">Buscando seu vídeo…</span>
+    </div>
+    <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-media">
+        <img id="resThumb" alt="Miniatura do vídeo">
+      </div>
+      <div class="result-body">
+        <p class="result-platform" id="resPlatform"></p>
+        <h2 class="result-title" id="resTitle"></h2>
+        <p class="result-meta" id="resMeta"></p>
+        <div class="fmt-group">
+          <h3>Vídeo</h3>
+          <div id="videoFormats" class="fmt-list"></div>
+        </div>
+        <div class="fmt-group">
+          <h3>Áudio</h3>
+          <div id="audioFormats" class="fmt-list"></div>
+        </div>
+        <p class="result-note">Cada download é buscado na hora, direto da fonte original. O SnapFetch nunca armazena vídeos.</p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span>TikTok</span><span>Facebook</span><span>Instagram</span><span>YouTube</span><span>X (Twitter)</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Como funciona</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Copie o link</h3><p>Abra o vídeo no aplicativo ou no navegador, toque em Compartilhar e escolha “Copiar link”.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Cole aqui em cima</h3><p>Cole o link na caixa no topo desta página e aperte Baixar.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Escolha a qualidade e salve</h3><p>Escolha a qualidade de vídeo que você quer — ou MP3, se quiser só o áudio — e o arquivo é salvo no seu aparelho.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Por que as pessoas usam o SnapFetch</h2>
+  <div class="cards">
+    <div class="card"><h3>Totalmente grátis</h3><p>Não há nada para pagar e nenhum plano premium. Todos os formatos que o vídeo original oferece estão disponíveis para todo mundo.</p></div>
+    <div class="card"><h3>Sem aplicativo, sem conta</h3><p>O SnapFetch funciona inteiramente no seu navegador. Nada para instalar, e nunca pedimos que você se cadastre ou faça login.</p></div>
+    <div class="card"><h3>Qualidade original</h3><p>Os arquivos são buscados direto da fonte, na qualidade em que o criador enviou, incluindo HD quando disponível.</p></div>
+    <div class="card"><h3>TikTok sem marca d'água</h3><p>O SnapFetch busca o arquivo original que o TikTok armazena, então os vídeos do TikTok são salvos limpos — sem a marca d'água com o logo que se move quando o vídeo toca no aplicativo.</p></div>
+    <div class="card"><h3>Vídeo ou MP3</h3><p>Salve o vídeo completo ou pegue só o som em MP3 — perfeito para músicas, discursos e podcasts.</p></div>
+    <div class="card"><h3>Limpador de fotos do Gemini</h3><p>Fez uma imagem com o Google Gemini? Nosso <a href="{{ url_for('gemini_remover_lang', lang='pt') }}">removedor de marca d'água do Gemini</a> gratuito limpa o logo ✦ visível no canto da sua foto.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Perguntas frequentes</h2>
+  <details><summary>O SnapFetch é grátis?</summary><p>Sim. O SnapFetch é gratuito, sem limite de quantos vídeos você pode salvar. O site é mantido por anúncios.</p></details>
+  <details><summary>Os vídeos do TikTok baixados têm marca d'água?</summary><p>Não. O TikTok adiciona a marca d'água com seu logo quando o vídeo toca dentro do aplicativo, mas o arquivo original é armazenado sem ela. O SnapFetch busca esse arquivo original, então o seu download vem limpo. Os vídeos que você salva do Facebook, Instagram, YouTube e X também vêm exatamente como cada plataforma os armazena.</p></details>
+  <details><summary>Quais sites são compatíveis?</summary><p>TikTok, Facebook (incluindo Reels), Instagram (Reels e publicações), YouTube (incluindo Shorts) e X. Se uma plataforma mudar alguma coisa, um link pode parar de funcionar por um tempo — tente de novo mais tarde.</p></details>
+  <details><summary>Posso baixar vídeos privados?</summary><p>Não. O SnapFetch só consegue buscar vídeos que qualquer pessoa pode ver publicamente. Se um vídeo for privado ou só para amigos, ele não pode ser baixado aqui.</p></details>
+  <details><summary>Para onde vão os vídeos baixados?</summary><p>Eles são salvos na pasta de Downloads do seu aparelho, como qualquer outro arquivo baixado pelo navegador.</p></details>
+  <details><summary>Posso baixar qualquer vídeo?</summary><p>Baixe apenas vídeos que sejam seus, que estejam em domínio público ou que o criador tenha permitido salvar, e use-os para fins pessoais. Veja nossos <a href="{{ url_for('terms') }}">Termos de Uso</a>.</p></details>
+</section>
+{% endblock %}

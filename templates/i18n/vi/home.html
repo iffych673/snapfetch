@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block html_lang %}vi{% endblock %}
+{% block html_dir %}ltr{% endblock %}
+{% block nav_home %}Trang chủ{% endblock %}
+{% block nav_tiktok %}Hướng dẫn TikTok{% endblock %}
+{% block nav_facebook %}Hướng dẫn Facebook{% endblock %}
+{% block nav_gemini %}Xóa logo Gemini{% endblock %}
+{% block nav_about %}Giới thiệu{% endblock %}
+{% block nav_contact %}Liên hệ{% endblock %}
+{% block footer_blurb %}Công cụ tải video miễn phí, đơn giản cho TikTok, Facebook, Instagram, YouTube và X. Không cần đăng ký, không cần cài đặt phần mềm — chỉ cần dán liên kết.{% endblock %}
+{% block fh_guides %}Hướng dẫn{% endblock %}
+{% block fl_guide_tiktok %}Tải video TikTok{% endblock %}
+{% block fl_guide_facebook %}Tải video Facebook{% endblock %}
+{% block fl_guide_gemini %}Xóa watermark của Gemini{% endblock %}
+{% block fl_guide_home %}Tải video{% endblock %}
+{% block fh_company %}Công ty{% endblock %}
+{% block fl_about %}Giới thiệu{% endblock %}
+{% block fl_contact %}Liên hệ{% endblock %}
+{% block fh_legal %}Pháp lý{% endblock %}
+{% block fl_privacy %}Chính sách bảo mật{% endblock %}
+{% block fl_terms %}Điều khoản sử dụng{% endblock %}
+{% block fl_dmca %}DMCA / Bản quyền{% endblock %}
+{% block footer_rights %}SnapFetch không lưu trữ bất kỳ video nào. Mọi nội dung thuộc về chủ sở hữu tương ứng. Vui lòng chỉ tải nội dung thuộc về bạn hoặc nội dung bạn được phép sử dụng.{% endblock %}
+{% block sw_label %}Ngôn ngữ:{% endblock %}
+{% block title %}SnapFetch — Tải video miễn phí từ TikTok, Facebook, Instagram và YouTube{% endblock %}
+{% block description %}Tải video TikTok không logo (không watermark), cùng video từ Facebook, Instagram, YouTube và X — miễn phí. Dán liên kết, chọn chất lượng và lưu video hoặc MP3 — không cần ứng dụng, không cần tài khoản.{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Tải video miễn phí</h1>
+    <p class="hero-sub">Dán liên kết từ TikTok, Facebook, Instagram, YouTube hoặc X — và lưu video chỉ trong vài giây. Không cần cài ứng dụng, không cần tạo tài khoản. Video TikTok được tải về <strong>không logo</strong> — file gốc sạch, đúng như nhà sáng tạo đã đăng tải.</p>
+
+    <form id="fetchForm" class="fetch-form" autocomplete="off">
+      <input type="url" id="urlInput" placeholder="Dán liên kết video của bạn vào đây…" required>
+      <button type="submit" id="fetchBtn">Tải xuống</button>
+    </form>
+    <div id="statusBox" class="status-box hidden" role="status">
+      <span class="spinner" id="spinner"></span><span id="statusText">Đang lấy video của bạn…</span>
+    </div>
+    <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-media">
+        <img id="resThumb" alt="Ảnh thu nhỏ của video">
+      </div>
+      <div class="result-body">
+        <p class="result-platform" id="resPlatform"></p>
+        <h2 class="result-title" id="resTitle"></h2>
+        <p class="result-meta" id="resMeta"></p>
+        <div class="fmt-group">
+          <h3>Video</h3>
+          <div id="videoFormats" class="fmt-list"></div>
+        </div>
+        <div class="fmt-group">
+          <h3>Âm thanh</h3>
+          <div id="audioFormats" class="fmt-list"></div>
+        </div>
+        <p class="result-note">Mỗi lần tải, video đều được lấy mới trực tiếp từ nguồn gốc. SnapFetch không bao giờ lưu trữ video.</p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span>TikTok</span><span>Facebook</span><span>Instagram</span><span>YouTube</span><span>X (Twitter)</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Cách hoạt động</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Sao chép liên kết</h3><p>Mở video trong ứng dụng hoặc trình duyệt, chạm vào Chia sẻ và chọn “Sao chép liên kết”.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Dán liên kết vào ô ở trên</h3><p>Dán liên kết vào ô ở đầu trang này và nhấn Tải xuống.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Chọn chất lượng và lưu</h3><p>Chọn chất lượng video bạn muốn — hoặc MP3 nếu chỉ cần âm thanh — và file sẽ được lưu vào thiết bị của bạn.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Vì sao mọi người dùng SnapFetch</h2>
+  <div class="cards">
+    <div class="card"><h3>Hoàn toàn miễn phí</h3><p>Không phải trả bất cứ khoản nào và không có gói cao cấp. Mọi định dạng mà video gốc cung cấp đều dành cho tất cả mọi người.</p></div>
+    <div class="card"><h3>Không ứng dụng, không tài khoản</h3><p>SnapFetch chạy hoàn toàn trong trình duyệt của bạn. Không cần cài đặt gì, và chúng tôi không bao giờ yêu cầu bạn đăng ký hay đăng nhập.</p></div>
+    <div class="card"><h3>Chất lượng gốc</h3><p>File được lấy trực tiếp từ nguồn với chất lượng mà nhà sáng tạo đã tải lên, bao gồm cả HD khi có sẵn.</p></div>
+    <div class="card"><h3>TikTok không logo</h3><p>SnapFetch lấy file gốc mà TikTok lưu trữ, vì vậy video TikTok được lưu sạch sẽ — không còn watermark logo di chuyển mà bạn thấy khi video phát trong ứng dụng.</p></div>
+    <div class="card"><h3>Video hoặc MP3</h3><p>Lưu toàn bộ video, hoặc chỉ lấy âm thanh dưới dạng MP3 — tiện cho âm nhạc, bài phát biểu và podcast.</p></div>
+    <div class="card"><h3>Xóa logo trên ảnh Gemini</h3><p>Tạo ảnh bằng Google Gemini? Công cụ <a href="{{ url_for('gemini_remover_lang', lang='vi') }}">xóa watermark Gemini</a> miễn phí của chúng tôi sẽ làm sạch logo ✦ hiển thị ở góc ảnh của bạn.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Câu hỏi thường gặp</h2>
+  <details><summary>SnapFetch có miễn phí không?</summary><p>Có. SnapFetch hoàn toàn miễn phí và không giới hạn số video bạn lưu. Trang web được duy trì bằng quảng cáo.</p></details>
+  <details><summary>Video TikTok tải về có logo không?</summary><p>Không. TikTok thêm watermark logo khi video phát trong ứng dụng, nhưng file gốc được lưu trữ mà không có logo đó. SnapFetch lấy chính file gốc ấy, nên bản tải về của bạn sạch sẽ. Video bạn lưu từ Facebook, Instagram, YouTube và X cũng đến đúng như cách các nền tảng đó lưu trữ.</p></details>
+  <details><summary>Những trang nào được hỗ trợ?</summary><p>TikTok, Facebook (bao gồm Reels), Instagram (Reels và bài đăng), YouTube (bao gồm Shorts) và X. Nếu một nền tảng thay đổi điều gì đó, liên kết có thể tạm thời không hoạt động — hãy thử lại sau.</p></details>
+  <details><summary>Tôi có thể tải video riêng tư không?</summary><p>Không. SnapFetch chỉ lấy được những video mà mọi người đều xem công khai. Video riêng tư hoặc chỉ dành cho bạn bè thì không thể tải tại đây.</p></details>
+  <details><summary>Video tải về được lưu ở đâu?</summary><p>Video được lưu vào thư mục Tải xuống (Downloads) trên thiết bị của bạn, giống như mọi file khác từ trình duyệt.</p></details>
+  <details><summary>Tải bất kỳ video nào cũng được phải không?</summary><p>Vui lòng chỉ tải những video thuộc về bạn, thuộc phạm vi công cộng, hoặc video bạn được nhà sáng tạo cho phép lưu, và chỉ dùng cho mục đích cá nhân. Xem <a href="{{ url_for('terms') }}">Điều khoản sử dụng</a> của chúng tôi.</p></details>
+</section>
+{% endblock %}

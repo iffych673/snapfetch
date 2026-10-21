@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block html_lang %}es{% endblock %}
+{% block html_dir %}ltr{% endblock %}
+{% block nav_home %}Inicio{% endblock %}
+{% block nav_tiktok %}Guía de TikTok{% endblock %}
+{% block nav_facebook %}Guía de Facebook{% endblock %}
+{% block nav_gemini %}Quitar marca de Gemini{% endblock %}
+{% block nav_about %}Acerca de{% endblock %}
+{% block nav_contact %}Contacto{% endblock %}
+{% block footer_blurb %}Un descargador de videos sencillo y gratuito para TikTok, Facebook, Instagram, YouTube y X. Sin registro, sin instalar ningún programa: solo pega un enlace.{% endblock %}
+{% block fh_guides %}Guías{% endblock %}
+{% block fl_guide_tiktok %}Descargar videos de TikTok{% endblock %}
+{% block fl_guide_facebook %}Descargar videos de Facebook{% endblock %}
+{% block fl_guide_gemini %}Quitar la marca de agua de Gemini{% endblock %}
+{% block fl_guide_home %}Descargador de videos{% endblock %}
+{% block fh_company %}Empresa{% endblock %}
+{% block fl_about %}Acerca de{% endblock %}
+{% block fl_contact %}Contacto{% endblock %}
+{% block fh_legal %}Legal{% endblock %}
+{% block fl_privacy %}Política de privacidad{% endblock %}
+{% block fl_terms %}Términos de uso{% endblock %}
+{% block fl_dmca %}DMCA / Derechos de autor{% endblock %}
+{% block footer_rights %}SnapFetch no aloja ningún video. Todo el contenido pertenece a sus respectivos propietarios. Descarga solo contenido que sea tuyo o que tengas permiso para usar.{% endblock %}
+{% block sw_label %}Idioma:{% endblock %}
+{% block title %}Eliminador de marca de agua de Gemini — Limpia el logo ✦ de tus fotos con IA | SnapFetch{% endblock %}
+{% block description %}Herramienta en línea gratuita para quitar el logo brillante ✦ visible de Gemini de la esquina de tus fotos generadas con IA. Sube una foto y descarga una copia limpia en segundos: sin registro, y tu imagen nunca se almacena.{% endblock %}
+{% block head %}
+<style>
+  .uploader { background:#fff; border:1px solid #e5e1f8; border-radius:16px; padding:22px; margin-top:22px; text-align:center; }
+  .uploader input[type=file] { display:block; margin:14px auto; max-width:100%; }
+  .clean-btn { background:#6c4cf1; color:#fff; border:0; border-radius:10px; padding:13px 28px; font-size:1rem; font-weight:600; cursor:pointer; }
+  .clean-btn:disabled { opacity:.55; cursor:wait; }
+  .compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+  .compare figure { margin:0; }
+  .compare img { width:100%; border-radius:12px; border:1px solid #e5e1f8; display:block; }
+  .compare figcaption { font-size:.85rem; color:#666; margin-top:6px; text-align:center; }
+  @media (max-width:640px){ .compare{ grid-template-columns:1fr; } }
+  .dl-btn { display:inline-block; margin-top:14px; background:#16a34a; color:#fff; text-decoration:none; border-radius:10px; padding:13px 28px; font-weight:600; }
+</style>
+{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Eliminador de marca de agua de Gemini</h1>
+    <p class="hero-sub">Google Gemini estampa un pequeño logo brillante ✦ en la esquina de cada foto que crea. Sube tu foto aquí y SnapFetch limpia ese logo visible: gratis, en segundos, y tu imagen nunca se almacena.</p>
+
+    <div class="uploader">
+      <form id="wmForm">
+        <input type="file" id="wmFile" accept="image/*" required>
+        <button type="submit" class="clean-btn" id="wmBtn">Quitar el logo</button>
+      </form>
+      <div id="wmStatus" class="status-box hidden" role="status">
+        <span class="spinner"></span><span>Limpiando tu foto…</span>
+      </div>
+      <div id="wmError" class="error-box hidden" role="alert"></div>
+      <div class="compare hidden" id="wmCompare">
+        <figure>
+          <img id="wmBefore" alt="Tu foto original">
+          <figcaption>Antes</figcaption>
+        </figure>
+        <figure>
+          <img id="wmAfter" alt="Tu foto con el logo de Gemini limpio">
+          <figcaption>Después</figcaption>
+        </figure>
+      </div>
+      <a id="wmDownload" class="dl-btn hidden" href="#" download="snapfetch-clean.jpg">Descargar foto limpia</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Cómo funciona</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Sube tu foto</h3><p>Elige una foto JPG, PNG o WebP creada por Gemini (hasta 16 MB).</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Limpiamos la esquina</h3><p>La esquina que lleva el logo ✦ se reconstruye a partir de la imagen que la rodea, de modo que el logo desaparece dentro de la foto.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Descarga la copia limpia</h3><p>Previsualiza el resultado y guárdalo. El original queda intacto en tu dispositivo.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Lo que debes saber</h2>
+  <div class="cards">
+    <div class="card"><h3>Solo el logo visible</h3><p>Esta herramienta limpia el brillo que se ve en la esquina. Gemini también incrusta un marcador de IA invisible (SynthID) dentro del archivo: ese permanece, así que la imagen sigue siendo identificable como creada por IA.</p></div>
+    <div class="card"><h3>Tu foto no se almacena</h3><p>La imagen se procesa en memoria y la copia limpia se te devuelve directamente. Nada se guarda en nuestro servidor.</p></div>
+    <div class="card"><h3>Ideal para exportaciones de Gemini</h3><p>La herramienta espera el logo en la esquina inferior derecha, donde lo coloca Gemini. Si la esquina de tu foto contiene algo importante, también se reconstruirá: revisa la vista previa.</p></div>
+    <div class="card"><h3>Etiqueta el contenido de IA</h3><p>Plataformas como TikTok e Instagram te piden que etiquetes el contenido generado por IA cuando lo publicas. Una esquina limpia no cambia eso: sigue las reglas de cada plataforma.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Es gratuito?</summary><p>Sí, completamente gratuito: sin cuenta y sin límites para un uso normal.</p></details>
+  <details><summary>¿Funciona con videos de Gemini?</summary><p>Todavía no. Limpiar un video significa limpiar cada fotograma, lo que requiere un servidor mucho más grande que el de esta herramienta gratuita. Por ahora es solo para fotos.</p></details>
+  <details><summary>¿Bajará la calidad?</summary><p>La foto conserva su tamaño original (las fotos muy grandes se reducen a un borde más largo de 2400px) y se guarda con alta calidad. Solo se reconstruye la zona de la esquina.</p></details>
+  <details><summary>¿Está bien quitar el logo?</summary><p>Úsalo en tus propias imágenes, por favor. Quitar el logo visible no elimina tus responsabilidades: el marcador de IA invisible permanece, y las plataformas pueden seguir exigiendo una etiqueta de IA cuando publiques.</p></details>
+</section>
+
+<script>
+(function(){
+  var form = document.getElementById('wmForm');
+  var fileIn = document.getElementById('wmFile');
+  var btn = document.getElementById('wmBtn');
+  var status = document.getElementById('wmStatus');
+  var err = document.getElementById('wmError');
+  var compare = document.getElementById('wmCompare');
+  var before = document.getElementById('wmBefore');
+  var after = document.getElementById('wmAfter');
+  var dl = document.getElementById('wmDownload');
+  var lastUrl = null;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!fileIn.files.length){ return; }
+    err.classList.add('hidden'); compare.classList.add('hidden'); dl.classList.add('hidden');
+    status.classList.remove('hidden'); btn.disabled = true;
+    before.src = URL.createObjectURL(fileIn.files[0]);
+    var fd = new FormData();
+    fd.append('image', fileIn.files[0]);
+    fetch('/api/remove-watermark', { method:'POST', body: fd })
+      .then(function(r){
+        if(!r.ok){ return r.json().then(function(j){ throw new Error(j.error || 'Algo salió mal.'); }); }
+        return r.blob();
+      })
+      .then(function(blob){
+        if(lastUrl){ URL.revokeObjectURL(lastUrl); }
+        lastUrl = URL.createObjectURL(blob);
+        after.src = lastUrl;
+        dl.href = lastUrl;
+        dl.setAttribute('download', blob.type.indexOf('png') >= 0 ? 'snapfetch-clean.png' : 'snapfetch-clean.jpg');
+        compare.classList.remove('hidden'); dl.classList.remove('hidden');
+      })
+      .catch(function(ex){
+        err.textContent = ex.message || 'Algo salió mal. Inténtalo de nuevo.';
+        err.classList.remove('hidden');
+      })
+      .finally(function(){
+        status.classList.add('hidden'); btn.disabled = false;
+      });
+  });
+})();
+</script>
+{% endblock %}

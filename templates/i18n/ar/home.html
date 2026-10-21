@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}SnapFetch — أداة مجانية لتحميل الفيديو من TikTok وFacebook وInstagram وYouTube{% endblock %}
+{% block description %}حمّل فيديو TikTok بدون علامة مائية، بالإضافة إلى فيديوهات Facebook وInstagram وYouTube وX — مجانًا. الصق الرابط، واختر الجودة، واحفظ الفيديو أو MP3 — بدون تطبيق وبدون حساب.{% endblock %}
+{% block html_lang %}ar{% endblock %}
+{% block html_dir %}rtl{% endblock %}
+{% block nav_home %}الرئيسية{% endblock %}
+{% block nav_tiktok %}دليل TikTok{% endblock %}
+{% block nav_facebook %}دليل Facebook{% endblock %}
+{% block nav_gemini %}إزالة علامة Gemini{% endblock %}
+{% block nav_about %}من نحن{% endblock %}
+{% block nav_contact %}اتصل بنا{% endblock %}
+{% block footer_blurb %}أداة بسيطة ومجانية لتحميل الفيديوهات من TikTok وFacebook وInstagram وYouTube وX. بدون تسجيل وبدون تثبيت أي برنامج — الصق الرابط فقط.{% endblock %}
+{% block fh_guides %}الأدلة{% endblock %}
+{% block fl_guide_tiktok %}تحميل فيديوهات TikTok{% endblock %}
+{% block fl_guide_facebook %}تحميل فيديوهات Facebook{% endblock %}
+{% block fl_guide_gemini %}إزالة العلامة المائية من Gemini{% endblock %}
+{% block fl_guide_home %}أداة تحميل الفيديو{% endblock %}
+{% block fh_company %}الشركة{% endblock %}
+{% block fl_about %}من نحن{% endblock %}
+{% block fl_contact %}اتصل بنا{% endblock %}
+{% block fh_legal %}قانوني{% endblock %}
+{% block fl_privacy %}سياسة الخصوصية{% endblock %}
+{% block fl_terms %}شروط الاستخدام{% endblock %}
+{% block fl_dmca %}DMCA / حقوق النشر{% endblock %}
+{% block footer_rights %}لا يستضيف SnapFetch أي فيديوهات. جميع الوسائط ملك لأصحابها. يُرجى تحميل المحتوى الذي تملكه أو لديك إذن باستخدامه فقط.{% endblock %}
+{% block sw_label %}اللغة:{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>أداة مجانية لتحميل الفيديو</h1>
+    <p class="hero-sub">الصق رابطًا من TikTok أو Facebook أو Instagram أو YouTube أو X — واحفظ الفيديو في ثوانٍ. بدون تطبيق تثبّته وبدون حساب تنشئه. تُحمّل فيديوهات TikTok <strong>بدون العلامة المائية</strong> — الملف الأصلي النظيف، تمامًا كما رفعه صاحب الفيديو.</p>
+
+    <form id="fetchForm" class="fetch-form" autocomplete="off">
+      <input type="url" id="urlInput" placeholder="الصق رابط الفيديو هنا…" required>
+      <button type="submit" id="fetchBtn">تحميل</button>
+    </form>
+    <div id="statusBox" class="status-box hidden" role="status">
+      <span class="spinner" id="spinner"></span><span id="statusText">جارٍ جلب الفيديو…</span>
+    </div>
+    <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-media">
+        <img id="resThumb" alt="الصورة المصغرة للفيديو">
+      </div>
+      <div class="result-body">
+        <p class="result-platform" id="resPlatform"></p>
+        <h2 class="result-title" id="resTitle"></h2>
+        <p class="result-meta" id="resMeta"></p>
+        <div class="fmt-group">
+          <h3>الفيديو</h3>
+          <div id="videoFormats" class="fmt-list"></div>
+        </div>
+        <div class="fmt-group">
+          <h3>الصوت</h3>
+          <div id="audioFormats" class="fmt-list"></div>
+        </div>
+        <p class="result-note">تُجلب التنزيلات طازجة من المصدر الأصلي في كل مرة. لا يخزّن SnapFetch الفيديوهات أبدًا.</p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span>TikTok</span><span>Facebook</span><span>Instagram</span><span>YouTube</span><span>X (Twitter)</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>كيف تعمل الأداة؟</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>انسخ الرابط</h3><p>افتح الفيديو في تطبيقك أو متصفحك، واضغط «مشاركة»، واختر «نسخ الرابط».</p></div>
+    <div class="step"><div class="step-n">2</div><h3>الصقه في الأعلى</h3><p>الصق الرابط في المربع أعلى هذه الصفحة واضغط «تحميل».</p></div>
+    <div class="step"><div class="step-n">3</div><h3>اختر الجودة واحفظ</h3><p>اختر جودة الفيديو التي تريدها — أو MP3 للصوت فقط — وسيُحفظ الملف على جهازك.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>لماذا يستخدم الناس SnapFetch؟</h2>
+  <div class="cards">
+    <div class="card"><h3>مجانية بالكامل</h3><p>لا يوجد ما تدفعه ولا باقة مدفوعة. كل الصيغ التي يوفرها الفيديو الأصلي متاحة للجميع.</p></div>
+    <div class="card"><h3>بدون تطبيق وبدون حساب</h3><p>يعمل SnapFetch بالكامل في متصفحك. لا شيء تثبّته، ولن نطلب منك أبدًا التسجيل أو تسجيل الدخول.</p></div>
+    <div class="card"><h3>الجودة الأصلية</h3><p>تُجلب الملفات مباشرة من المصدر بالجودة التي رفعها صاحب الفيديو، بما في ذلك HD عند توفرها.</p></div>
+    <div class="card"><h3>TikTok بدون علامة مائية</h3><p>يجلب SnapFetch الملف الأصلي الذي يخزّنه TikTok، لذا تُحفظ فيديوهات TikTok نظيفة — بدون علامة الشعار المتحركة التي تراها عند تشغيل الفيديو داخل التطبيق.</p></div>
+    <div class="card"><h3>فيديو أو MP3</h3><p>احفظ الفيديو كاملًا، أو خذ الصوت فقط بصيغة MP3 — مفيد للموسيقى والخطب والبودكاست.</p></div>
+    <div class="card"><h3>منظّف صور Gemini</h3><p>صنعتَ صورة باستخدام Google Gemini؟ أداة <a href="{{ url_for('gemini_remover_lang', lang='ar') }}">إزالة العلامة المائية من Gemini</a> المجانية تنظّف شعار ✦ الظاهر من زاوية صورتك.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>الأسئلة الشائعة</h2>
+  <details><summary>هل SnapFetch مجاني؟</summary><p>نعم. استخدام SnapFetch مجاني، ولا حدود لعدد الفيديوهات التي تحفظها. الموقع مدعوم بالإعلانات.</p></details>
+  <details><summary>هل تحمل فيديوهات TikTok المحمّلة علامة مائية؟</summary><p>لا. يضيف TikTok علامة شعاره المائية عند تشغيل الفيديو داخل التطبيق، لكن الملف الأصلي مخزّن بدونها. يجلب SnapFetch ذلك الملف الأصلي، فيكون تحميلك نظيفًا. والفيديوهات التي تحفظها من Facebook وInstagram وYouTube وX تأتي أيضًا كما تخزّنها منصاتها بالضبط.</p></details>
+  <details><summary>ما المواقع المدعومة؟</summary><p>TikTok وFacebook (بما في ذلك Reels) وInstagram (Reels والمنشورات) وYouTube (بما في ذلك Shorts) وX. إذا غيّرت منصة ما شيئًا، فقد يتوقف رابط عن العمل لفترة — حاول مرة أخرى لاحقًا.</p></details>
+  <details><summary>هل يمكنني تحميل فيديوهات خاصة؟</summary><p>لا. لا يستطيع SnapFetch جلب إلا الفيديوهات التي يمكن لأي شخص مشاهدتها علنًا. إذا كان الفيديو خاصًا أو للأصدقاء فقط، فلا يمكن تحميله هنا.</p></details>
+  <details><summary>أين تذهب الفيديوهات المحمّلة؟</summary><p>تُحفظ في مجلد التنزيلات على جهازك، مثل أي ملف آخر من متصفحك.</p></details>
+  <details><summary>هل يجوز تحميل أي فيديو؟</summary><p>يُرجى تحميل الفيديوهات التي تملكها فقط، أو التي في الملكية العامة، أو التي لديك إذن من صاحبها بحفظها، واستخدامها لأغراض شخصية. راجع <a href="{{ url_for('terms') }}">شروط الاستخدام</a>.</p></details>
+</section>
+{% endblock %}

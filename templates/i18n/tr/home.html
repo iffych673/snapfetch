@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}SnapFetch — TikTok, Facebook, Instagram ve YouTube için Ücretsiz Video İndirici{% endblock %}
+{% block description %}TikTok videosunu filigransız indirin; ayrıca Facebook, Instagram, YouTube ve X videolarını da ücretsiz indirin. Bağlantıyı yapıştırın, kaliteyi seçin ve videoyu veya MP3'ü kaydedin — uygulama ve hesap gerekmez.{% endblock %}
+{% block html_lang %}tr{% endblock %}
+{% block html_dir %}ltr{% endblock %}
+{% block nav_home %}Ana Sayfa{% endblock %}
+{% block nav_tiktok %}TikTok Rehberi{% endblock %}
+{% block nav_facebook %}Facebook Rehberi{% endblock %}
+{% block nav_gemini %}Gemini Filigranı Kaldırma{% endblock %}
+{% block nav_about %}Hakkında{% endblock %}
+{% block nav_contact %}İletişim{% endblock %}
+{% block footer_blurb %}TikTok, Facebook, Instagram, YouTube ve X için basit ve ücretsiz bir video indirici. Kayıt gerekmez, kurulacak yazılım yok — bağlantıyı yapıştırmanız yeterli.{% endblock %}
+{% block fh_guides %}Rehberler{% endblock %}
+{% block fl_guide_tiktok %}TikTok videoları indir{% endblock %}
+{% block fl_guide_facebook %}Facebook videoları indir{% endblock %}
+{% block fl_guide_gemini %}Gemini filigranını kaldır{% endblock %}
+{% block fl_guide_home %}Video indirici{% endblock %}
+{% block fh_company %}Şirket{% endblock %}
+{% block fl_about %}Hakkında{% endblock %}
+{% block fl_contact %}İletişim{% endblock %}
+{% block fh_legal %}Yasal{% endblock %}
+{% block fl_privacy %}Gizlilik Politikası{% endblock %}
+{% block fl_terms %}Kullanım Şartları{% endblock %}
+{% block fl_dmca %}DMCA / Telif Hakkı{% endblock %}
+{% block footer_rights %}SnapFetch hiçbir videoyu barındırmaz. Tüm içerikler sahiplerine aittir. Lütfen yalnızca size ait olan veya kullanma izniniz bulunan içerikleri indirin.{% endblock %}
+{% block sw_label %}Dil:{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Ücretsiz Video İndirici</h1>
+    <p class="hero-sub">TikTok, Facebook, Instagram, YouTube veya X bağlantısını yapıştırın — videoyu saniyeler içinde kaydedin. Kurulacak uygulama yok, oluşturulacak hesap yok. TikTok videoları <strong>filigransız</strong> indirilir — içerik üreticisinin yüklediği temiz, orijinal dosya.</p>
+
+    <form id="fetchForm" class="fetch-form" autocomplete="off">
+      <input type="url" id="urlInput" placeholder="Video bağlantısını buraya yapıştırın…" required>
+      <button type="submit" id="fetchBtn">İndir</button>
+    </form>
+    <div id="statusBox" class="status-box hidden" role="status">
+      <span class="spinner" id="spinner"></span><span id="statusText">Videonuz getiriliyor…</span>
+    </div>
+    <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-media">
+        <img id="resThumb" alt="Video küçük resmi">
+      </div>
+      <div class="result-body">
+        <p class="result-platform" id="resPlatform"></p>
+        <h2 class="result-title" id="resTitle"></h2>
+        <p class="result-meta" id="resMeta"></p>
+        <div class="fmt-group">
+          <h3>Video</h3>
+          <div id="videoFormats" class="fmt-list"></div>
+        </div>
+        <div class="fmt-group">
+          <h3>Ses</h3>
+          <div id="audioFormats" class="fmt-list"></div>
+        </div>
+        <p class="result-note">İndirilen dosyalar her seferinde orijinal kaynaktan taze olarak getirilir. SnapFetch videoları asla saklamaz.</p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span>TikTok</span><span>Facebook</span><span>Instagram</span><span>YouTube</span><span>X (Twitter)</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Nasıl çalışır?</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Bağlantıyı kopyalayın</h3><p>Videoyu uygulamanızda veya tarayıcınızda açın, Paylaş'a dokunun ve “Bağlantıyı kopyala”yı seçin.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Yukarıya yapıştırın</h3><p>Bağlantıyı bu sayfanın üstündeki kutuya yapıştırın ve İndir'e basın.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Kalite seçin ve kaydedin</h3><p>İstediğiniz video kalitesini seçin — veya yalnızca ses için MP3'ü seçin — dosya cihazınıza kaydedilir.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>İnsanlar neden SnapFetch kullanıyor?</h2>
+  <div class="cards">
+    <div class="card"><h3>Tamamen ücretsiz</h3><p>Ödenecek hiçbir şey ve premium katman yok. Orijinal videonun sunduğu her format herkes için kullanılabilir.</p></div>
+    <div class="card"><h3>Uygulama yok, hesap yok</h3><p>SnapFetch tamamen tarayıcınızda çalışır. Kurulacak hiçbir şey yok ve sizden asla kayıt olmanızı veya oturum açmanızı istemeyiz.</p></div>
+    <div class="card"><h3>Orijinal kalite</h3><p>Dosyalar, içerik üreticisinin yüklediği kalitede, mevcut olduğunda HD dahil, doğrudan kaynaktan getirilir.</p></div>
+    <div class="card"><h3>Filigransız TikTok</h3><p>SnapFetch, TikTok'un sakladığı orijinal dosyayı getirir; böylece TikTok videoları, video uygulama içinde oynarken gördüğünüz hareketli logo filigranı olmadan temiz şekilde kaydedilir.</p></div>
+    <div class="card"><h3>Video veya MP3</h3><p>Videonun tamamını kaydedin ya da yalnızca sesi MP3 olarak alın — müzik, konuşmalar ve podcast'ler için kullanışlı.</p></div>
+    <div class="card"><h3>Gemini fotoğraf temizleyici</h3><p>Google Gemini ile bir resim mi yaptınız? Ücretsiz <a href="{{ url_for('gemini_remover_lang', lang='tr') }}">Gemini filigranı kaldırma</a> aracımız, fotoğrafınızın köşesindeki görünür ✦ logosunu temizler.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Sık sorulan sorular</h2>
+  <details><summary>SnapFetch ücretsiz mi?</summary><p>Evet. SnapFetch'i kullanmak ücretsizdir ve kaç video kaydedebileceğiniz konusunda bir sınır yoktur. Site, reklamlarla desteklenmektedir.</p></details>
+  <details><summary>TikTok indirmelerinde filigran var mı?</summary><p>Hayır. TikTok, video uygulama içinde oynarken logo filigranını ekler, ancak orijinal dosya filigransız saklanır. SnapFetch bu orijinal dosyayı getirir, böylece indirmeniz temiz olur. Facebook, Instagram, YouTube ve X'ten kaydettiğiniz videolar da platformlarının sakladığı hâliyle gelir.</p></details>
+  <details><summary>Hangi siteler destekleniyor?</summary><p>TikTok, Facebook (Reels dahil), Instagram (Reels ve gönderiler), YouTube (Shorts dahil) ve X. Bir platform bir şeyi değiştirirse, bir bağlantı bir süre çalışmayabilir — daha sonra tekrar deneyin.</p></details>
+  <details><summary>Gizli videoları indirebilir miyim?</summary><p>Hayır. SnapFetch yalnızca herkesin görüntüleyebildiği videoları getirebilir. Bir video gizliyse veya yalnızca arkadaşlara açıksa burada indirilemez.</p></details>
+  <details><summary>İndirilen videolar nereye gider?</summary><p>Tarayıcınızdan gelen diğer dosyalar gibi cihazınızın İndirilenler klasörüne kaydedilir.</p></details>
+  <details><summary>Herhangi bir videoyu indirmek uygun mu?</summary><p>Lütfen yalnızca size ait, kamu malı olan veya kaydetmek için içerik üreticisinden izin aldığınız videoları indirin ve bunları kişisel amaçlarla kullanın. <a href="{{ url_for('terms') }}">Kullanım Şartlarımıza</a> bakın.</p></details>
+</section>
+{% endblock %}

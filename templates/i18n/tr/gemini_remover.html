@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block title %}Gemini Filigranı Kaldırma — Yapay Zekâ Fotoğraflarındaki ✦ Logosunu Temizleyin | SnapFetch{% endblock %}
+{% block description %}Yapay zekâ ile oluşturduğunuz fotoğrafların köşesindeki görünür Gemini parıltı logosunu kaldırmak için ücretsiz çevrimiçi araç. Bir fotoğraf yükleyin ve saniyeler içinde temiz bir kopyasını indirin — kayıt gerekmez ve görseliniz asla saklanmaz.{% endblock %}
+{% block html_lang %}tr{% endblock %}
+{% block html_dir %}ltr{% endblock %}
+{% block nav_home %}Ana Sayfa{% endblock %}
+{% block nav_tiktok %}TikTok Rehberi{% endblock %}
+{% block nav_facebook %}Facebook Rehberi{% endblock %}
+{% block nav_gemini %}Gemini Filigranı Kaldırma{% endblock %}
+{% block nav_about %}Hakkında{% endblock %}
+{% block nav_contact %}İletişim{% endblock %}
+{% block footer_blurb %}TikTok, Facebook, Instagram, YouTube ve X için basit ve ücretsiz bir video indirici. Kayıt gerekmez, kurulacak yazılım yok — bağlantıyı yapıştırmanız yeterli.{% endblock %}
+{% block fh_guides %}Rehberler{% endblock %}
+{% block fl_guide_tiktok %}TikTok videoları indir{% endblock %}
+{% block fl_guide_facebook %}Facebook videoları indir{% endblock %}
+{% block fl_guide_gemini %}Gemini filigranını kaldır{% endblock %}
+{% block fl_guide_home %}Video indirici{% endblock %}
+{% block fh_company %}Şirket{% endblock %}
+{% block fl_about %}Hakkında{% endblock %}
+{% block fl_contact %}İletişim{% endblock %}
+{% block fh_legal %}Yasal{% endblock %}
+{% block fl_privacy %}Gizlilik Politikası{% endblock %}
+{% block fl_terms %}Kullanım Şartları{% endblock %}
+{% block fl_dmca %}DMCA / Telif Hakkı{% endblock %}
+{% block footer_rights %}SnapFetch hiçbir videoyu barındırmaz. Tüm içerikler sahiplerine aittir. Lütfen yalnızca size ait olan veya kullanma izniniz bulunan içerikleri indirin.{% endblock %}
+{% block sw_label %}Dil:{% endblock %}
+{% block head %}
+<style>
+  .uploader { background:#fff; border:1px solid #e5e1f8; border-radius:16px; padding:22px; margin-top:22px; text-align:center; }
+  .uploader input[type=file] { display:block; margin:14px auto; max-width:100%; }
+  .clean-btn { background:#6c4cf1; color:#fff; border:0; border-radius:10px; padding:13px 28px; font-size:1rem; font-weight:600; cursor:pointer; }
+  .clean-btn:disabled { opacity:.55; cursor:wait; }
+  .compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+  .compare figure { margin:0; }
+  .compare img { width:100%; border-radius:12px; border:1px solid #e5e1f8; display:block; }
+  .compare figcaption { font-size:.85rem; color:#666; margin-top:6px; text-align:center; }
+  @media (max-width:640px){ .compare{ grid-template-columns:1fr; } }
+  .dl-btn { display:inline-block; margin-top:14px; background:#16a34a; color:#fff; text-decoration:none; border-radius:10px; padding:13px 28px; font-weight:600; }
+</style>
+{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Gemini Filigranı Kaldırma</h1>
+    <p class="hero-sub">Google Gemini, yaptığı her fotoğrafın köşesine küçük bir ✦ parıltı logosu damgalar. Fotoğrafınızı buraya yükleyin; SnapFetch bu görünür logoyu temizler — ücretsiz, saniyeler içinde ve görseliniz asla saklanmaz.</p>
+
+    <div class="uploader">
+      <form id="wmForm">
+        <input type="file" id="wmFile" accept="image/*" required>
+        <button type="submit" class="clean-btn" id="wmBtn">Logoyu kaldır</button>
+      </form>
+      <div id="wmStatus" class="status-box hidden" role="status">
+        <span class="spinner"></span><span>Fotoğrafınız temizleniyor…</span>
+      </div>
+      <div id="wmError" class="error-box hidden" role="alert"></div>
+      <div class="compare hidden" id="wmCompare">
+        <figure>
+          <img id="wmBefore" alt="Orijinal fotoğrafınız">
+          <figcaption>Önce</figcaption>
+        </figure>
+        <figure>
+          <img id="wmAfter" alt="Gemini logosu temizlenmiş fotoğrafınız">
+          <figcaption>Sonra</figcaption>
+        </figure>
+      </div>
+      <a id="wmDownload" class="dl-btn hidden" href="#" download="snapfetch-clean.jpg">Temiz fotoğrafı indir</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Nasıl çalışır?</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Fotoğrafınızı yükleyin</h3><p>Gemini'nin yaptığı bir JPG, PNG veya WebP fotoğrafı seçin (en fazla 16 MB).</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Köşeyi temizliyoruz</h3><p>✦ logosunu taşıyan köşe, çevresindeki görüntüden yeniden oluşturulur; böylece logo görüntünün içinde kaybolur.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Temiz kopyayı indirin</h3><p>Sonucu önizleyin ve kaydedin. Orijinal, cihazınızda olduğu gibi kalır.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Bilmekte fayda var</h2>
+  <div class="cards">
+    <div class="card"><h3>Yalnızca görünür logo</h3><p>Bu araç, köşede görebildiğiniz parıltıyı temizler. Gemini ayrıca dosyanın içine görünmez bir yapay zekâ işareti (SynthID) gömer — o kalır, böylece resim yapay zekâ ile yapıldığı anlaşılabilir olmaya devam eder.</p></div>
+    <div class="card"><h3>Fotoğrafınız saklanmaz</h3><p>Görsel bellekte işlenir ve temiz kopya doğrudan size geri gönderilir. Sunucumuza hiçbir şey kaydedilmez.</p></div>
+    <div class="card"><h3>Gemini dışa aktarımlarında en iyisi</h3><p>Araç, logonun Gemini'nin koyduğu yer olan sağ alt köşede olmasını bekler. Fotoğrafınızın köşesinde önemli bir şey varsa o da yeniden oluşturulur — önizlemeyi kontrol edin.</p></div>
+    <div class="card"><h3>Yapay zekâ içeriğini etiketleyin</h3><p>TikTok ve Instagram gibi platformlar, yapay zekâ ile üretilen içeriği yayınlarken etiketlemenizi ister. Temizlenmiş bir köşe bunu değiştirmez — lütfen her platformun kurallarına uyun.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Sık sorulan sorular</h2>
+  <details><summary>Bu ücretsiz mi?</summary><p>Evet, tamamen ücretsiz — hesap yok, normal kullanım için sınır yok.</p></details>
+  <details><summary>Gemini videolarında çalışıyor mu?</summary><p>Henüz değil. Bir videoyu temizlemek, her kareyi temizlemek demektir; bu, bu ücretsiz aracın üzerinde çalıştığı sunucudan çok daha büyüğünü gerektirir. Şimdilik yalnızca fotoğraflar.</p></details>
+  <details><summary>Kalite düşer mi?</summary><p>Fotoğraf orijinal boyutunu korur (çok büyük fotoğraflar en uzun kenarı 2400px olacak şekilde yeniden boyutlandırılır) ve yüksek kalitede kaydedilir. Yalnızca köşe alanı yeniden oluşturulur.</p></details>
+  <details><summary>Logoyu kaldırmak uygun mu?</summary><p>Lütfen bunu kendi görsellerinizde kullanın. Görünür logoyu kaldırmak sorumluluklarınızı ortadan kaldırmaz: görünmez yapay zekâ işareti kalır ve yayınladığınızda platformlar yine de bir yapay zekâ etiketi isteyebilir.</p></details>
+</section>
+
+<script>
+(function(){
+  var form = document.getElementById('wmForm');
+  var fileIn = document.getElementById('wmFile');
+  var btn = document.getElementById('wmBtn');
+  var status = document.getElementById('wmStatus');
+  var err = document.getElementById('wmError');
+  var compare = document.getElementById('wmCompare');
+  var before = document.getElementById('wmBefore');
+  var after = document.getElementById('wmAfter');
+  var dl = document.getElementById('wmDownload');
+  var lastUrl = null;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!fileIn.files.length){ return; }
+    err.classList.add('hidden'); compare.classList.add('hidden'); dl.classList.add('hidden');
+    status.classList.remove('hidden'); btn.disabled = true;
+    before.src = URL.createObjectURL(fileIn.files[0]);
+    var fd = new FormData();
+    fd.append('image', fileIn.files[0]);
+    fetch('/api/remove-watermark', { method:'POST', body: fd })
+      .then(function(r){
+        if(!r.ok){ return r.json().then(function(j){ throw new Error(j.error || 'Bir şeyler ters gitti.'); }); }
+        return r.blob();
+      })
+      .then(function(blob){
+        if(lastUrl){ URL.revokeObjectURL(lastUrl); }
+        lastUrl = URL.createObjectURL(blob);
+        after.src = lastUrl;
+        dl.href = lastUrl;
+        dl.setAttribute('download', blob.type.indexOf('png') >= 0 ? 'snapfetch-clean.png' : 'snapfetch-clean.jpg');
+        compare.classList.remove('hidden'); dl.classList.remove('hidden');
+      })
+      .catch(function(ex){
+        err.textContent = ex.message || 'Bir şeyler ters gitti. Lütfen tekrar deneyin.';
+        err.classList.remove('hidden');
+      })
+      .finally(function(){
+        status.classList.add('hidden'); btn.disabled = false;
+      });
+  });
+})();
+</script>
+{% endblock %}
