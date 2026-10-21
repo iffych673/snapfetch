@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}SoundCloud Downloader — Download SoundCloud Tracks to MP3 Free | SnapFetch{% endblock %}
+{% block description %}Free SoundCloud downloader: paste a SoundCloud track link and save it as MP3 or M4A in the original quality — no app, no account, no cost.{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>SoundCloud Downloader</h1>
+    <p class="hero-sub">Paste a SoundCloud track link and save the song to your device as MP3 or M4A — in the original quality the artist uploaded. Free, with no app to install and no account to create.</p>
+
+    <form id="fetchForm" class="fetch-form" autocomplete="off">
+      <input type="url" id="urlInput" placeholder="Paste a SoundCloud track link here…" required>
+      <button type="submit" id="fetchBtn">Download</button>
+    </form>
+    <div id="statusBox" class="status-box hidden" role="status">
+      <span class="spinner" id="spinner"></span><span id="statusText">Fetching your track…</span>
+    </div>
+    <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-media">
+        <img id="resThumb" alt="Track artwork">
+      </div>
+      <div class="result-body">
+        <p class="result-platform" id="resPlatform"></p>
+        <h2 class="result-title" id="resTitle"></h2>
+        <p class="result-meta" id="resMeta"></p>
+        <div class="fmt-group">
+          <h3>Video</h3>
+          <div id="videoFormats" class="fmt-list"></div>
+        </div>
+        <div class="fmt-group">
+          <h3>Audio</h3>
+          <div id="audioFormats" class="fmt-list"></div>
+        </div>
+        <p class="result-note">Downloads are fetched fresh from the original source each time. SnapFetch never stores music or videos.</p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span>SoundCloud</span><span>MP3</span><span>M4A</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>How to download a SoundCloud track</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Copy the track link</h3><p>Open the track on SoundCloud, tap Share, and choose “Copy Link”.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Paste it above</h3><p>Paste the link into the box at the top of this page and press Download.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Save the audio</h3><p>Pick the audio format you want (MP3 or M4A) and the file saves straight to your device.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Why use SnapFetch for SoundCloud</h2>
+  <div class="cards">
+    <div class="card"><h3>Completely free</h3><p>No payment, no premium tier, no download limits. Every audio format the track offers is available to everyone.</p></div>
+    <div class="card"><h3>No app, no account</h3><p>Everything runs in your browser. Nothing to install, and we never ask you to register or sign in.</p></div>
+    <div class="card"><h3>Original quality</h3><p>The audio is fetched directly from SoundCloud at the quality the artist uploaded — no re-encoding, no quality loss added by us.</p></div>
+    <div class="card"><h3>Works on any device</h3><p>Phone, tablet or computer — if it has a browser, it can save SoundCloud tracks with SnapFetch.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Frequently asked questions</h2>
+  <details><summary>Is the SoundCloud downloader free?</summary><p>Yes. It is free to use with no limits. The site is supported by advertising.</p></details>
+  <details><summary>What format will my track be in?</summary><p>SoundCloud stores tracks in formats such as MP3 and M4A. SnapFetch offers you exactly the formats the track itself provides, so what you download is the original file.</p></details>
+  <details><summary>Can I download a whole playlist or album?</summary><p>This page is made for single tracks. Paste the link of the individual track you want to save.</p></details>
+  <details><summary>Can I download private or paid tracks?</summary><p>No. Only tracks that are publicly playable on SoundCloud can be fetched. Private tracks and tracks the artist has made download-restricted or paid cannot be saved here.</p></details>
+  <details><summary>Is it OK to download any track?</summary><p>Please only download tracks you own, that are in the public domain or shared under a license that allows downloading, or that you have the artist's permission to save — and use them for personal listening. Many artists also enable SoundCloud's own download button; support them where you can. See our <a href="{{ url_for('terms') }}">Terms of Use</a>.</p></details>
+  <details><summary>Where does the downloaded file go?</summary><p>It saves to your device's Downloads folder, like any other file from your browser.</p></details>
+</section>
+{% endblock %}

@@ -196,6 +196,11 @@ def gemini_remover_lang(lang):
                            page_key="gemini", lang=lang)
 
 
+@app.route("/soundcloud-downloader")
+def soundcloud():
+    return render_template("soundcloud.html")
+
+
 @app.route("/favicon.ico")
 def favicon():
     return send_from_directory(os.path.join(BASE_DIR, "static"),
@@ -218,6 +223,7 @@ def robots():
 def sitemap():
     pages = ["/", "/how-to-download-tiktok-videos",
              "/how-to-download-facebook-videos", "/gemini-watermark-remover",
+             "/soundcloud-downloader",
              "/about", "/privacy-policy", "/terms", "/dmca", "/contact"]
     for lg in LANGS:
         pages += [f"/{lg}/", f"/{lg}/how-to-download-tiktok-videos",
