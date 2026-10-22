@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Instagram Video Downloader — Download Reels &amp; Videos Free | SnapFetch{% endblock %}
+{% block description %}Free Instagram video downloader: paste a link and save Instagram Reels and videos in original quality — no login, no app, no password ever asked.{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is this Instagram video downloader free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is completely free with no download limits and no sign-up. The site is supported by advertising."}},
+{"@type":"Question","name":"Do I need to log in to Instagram?","acceptedAnswer":{"@type":"Answer","text":"No. You never log in and you should never type your Instagram password into a downloader site. SnapFetch fetches publicly available videos directly from the link you paste."}},
+{"@type":"Question","name":"Can I download Instagram Reels?","acceptedAnswer":{"@type":"Answer","text":"Yes. Reels download the same way as regular Instagram videos — copy the Reel's link, paste it above, and save the MP4."}},
+{"@type":"Question","name":"Can I download videos from private accounts?","acceptedAnswer":{"@type":"Answer","text":"No. Only videos and Reels from public accounts that anyone can view can be fetched. Private content cannot be saved here."}},
+{"@type":"Question","name":"Is it OK to download any Instagram video?","acceptedAnswer":{"@type":"Answer","text":"Only download videos you own or that you have the creator's permission to save, and keep them for personal use. Always credit creators when you share your own content."}}
+]}
+</script>
+{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>Instagram Video Downloader</h1>
+    <p class="hero-sub">Paste an Instagram link and save Reels and videos in their original quality. Free, no app to install — and we never ask for your Instagram login or password.</p>
+
+    <form id="fetchForm" class="fetch-form" autocomplete="off">
+      <input type="url" id="urlInput" placeholder="Paste an Instagram video or Reel link here…" required>
+      <button type="submit" id="fetchBtn">Download</button>
+    </form>
+    <div id="statusBox" class="status-box hidden" role="status">
+      <span class="spinner" id="spinner"></span><span id="statusText">Fetching your video…</span>
+    </div>
+    <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-media">
+        <img id="resThumb" alt="Video thumbnail">
+      </div>
+      <div class="result-body">
+        <p class="result-platform" id="resPlatform"></p>
+        <h2 class="result-title" id="resTitle"></h2>
+        <p class="result-meta" id="resMeta"></p>
+        <div class="fmt-group">
+          <h3>Video</h3>
+          <div id="videoFormats" class="fmt-list"></div>
+        </div>
+        <div class="fmt-group">
+          <h3>Audio</h3>
+          <div id="audioFormats" class="fmt-list"></div>
+        </div>
+        <p class="result-note">Downloads are fetched fresh from the original source each time. SnapFetch never stores videos.</p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span>Instagram</span><span>Reels</span><span>MP4</span><span>No login</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>How to download an Instagram video or Reel</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Copy the link</h3><p>Open the video or Reel in Instagram, tap the share icon (or the ⋯ menu) and choose “Copy Link”.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Paste it above</h3><p>Paste the link into the box at the top of this page and press Download. No login is needed.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Save the video</h3><p>Press the download button on the format shown and the MP4 saves straight to your device.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Why use SnapFetch for Instagram</h2>
+  <div class="cards">
+    <div class="card"><h3>No login — ever</h3><p>Sites that ask for your Instagram password are a scam risk. SnapFetch works from the link alone; your account stays yours.</p></div>
+    <div class="card"><h3>Completely free</h3><p>No payment, no premium tier, no download limits for anyone.</p></div>
+    <div class="card"><h3>Reels &amp; videos</h3><p>Both Reels and regular feed videos download as MP4 in the original quality Instagram serves.</p></div>
+    <div class="card"><h3>Works on any device</h3><p>Phone, tablet or computer — if it has a browser, it can save Instagram videos with SnapFetch.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Frequently asked questions</h2>
+  <details><summary>Is this Instagram video downloader free?</summary><p>Yes. It is completely free with no download limits and no sign-up. The site is supported by advertising.</p></details>
+  <details><summary>Do I need to log in to Instagram?</summary><p>No. You never log in — and you should never type your Instagram password into a downloader site. SnapFetch fetches publicly available videos directly from the link you paste.</p></details>
+  <details><summary>Can I download Instagram Reels?</summary><p>Yes. Reels download the same way as regular Instagram videos — copy the Reel's link, paste it above, and save the MP4.</p></details>
+  <details><summary>Can I download videos from private accounts?</summary><p>No. Only videos and Reels from public accounts that anyone can view can be fetched. Private content cannot be saved here.</p></details>
+  <details><summary>Is it OK to download any Instagram video?</summary><p>Only download videos you own or that you have the creator's permission to save, and keep them for personal use. Always credit creators when you share your own content. See our <a href="{{ url_for('terms') }}">Terms of Use</a>.</p></details>
+  <details><summary>Where does the downloaded file go?</summary><p>It saves to your device's Downloads folder, like any other file from your browser.</p></details>
+</section>
+{% endblock %}

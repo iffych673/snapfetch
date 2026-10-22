@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}YouTube Video Downloader — Download YouTube Videos Free in HD | SnapFetch{% endblock %}
+{% block description %}Free YouTube video downloader: paste a YouTube link and save the video as MP4 in HD quality — Shorts included. No app, no account, no cost.{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is this YouTube video downloader free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is completely free with no download limits, no premium tier and no sign-up. The site is supported by advertising."}},
+{"@type":"Question","name":"What quality can I download YouTube videos in?","acceptedAnswer":{"@type":"Answer","text":"You can choose from the formats the video itself offers, up to the highest quality the uploader provided — including HD 720p and 1080p, and 4K where available. Audio-only MP3/M4A options are offered when the source provides them."}},
+{"@type":"Question","name":"Can I download YouTube Shorts?","acceptedAnswer":{"@type":"Answer","text":"Yes. Copy the Shorts link the same way as a normal video link, paste it above, and download it as a regular MP4 file."}},
+{"@type":"Question","name":"Can I download a whole playlist?","acceptedAnswer":{"@type":"Answer","text":"This page is made for single videos. Paste the link of the individual video you want to save."}},
+{"@type":"Question","name":"Is it OK to download any YouTube video?","acceptedAnswer":{"@type":"Answer","text":"Only download videos you own, that are in the public domain or Creative Commons licensed, or that you have the creator's permission to save — and keep them for personal use. Support creators by watching and subscribing on YouTube too."}}
+]}
+</script>
+{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>YouTube Video Downloader</h1>
+    <p class="hero-sub">Paste a YouTube link and save the video to your device as an MP4 — in HD quality, including Shorts. Free, with no app to install and no account to create.</p>
+
+    <form id="fetchForm" class="fetch-form" autocomplete="off">
+      <input type="url" id="urlInput" placeholder="Paste a YouTube video link here…" required>
+      <button type="submit" id="fetchBtn">Download</button>
+    </form>
+    <div id="statusBox" class="status-box hidden" role="status">
+      <span class="spinner" id="spinner"></span><span id="statusText">Fetching your video…</span>
+    </div>
+    <div id="errorBox" class="error-box hidden" role="alert"></div>
+
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-media">
+        <img id="resThumb" alt="Video thumbnail">
+      </div>
+      <div class="result-body">
+        <p class="result-platform" id="resPlatform"></p>
+        <h2 class="result-title" id="resTitle"></h2>
+        <p class="result-meta" id="resMeta"></p>
+        <div class="fmt-group">
+          <h3>Video</h3>
+          <div id="videoFormats" class="fmt-list"></div>
+        </div>
+        <div class="fmt-group">
+          <h3>Audio</h3>
+          <div id="audioFormats" class="fmt-list"></div>
+        </div>
+        <p class="result-note">Downloads are fetched fresh from the original source each time. SnapFetch never stores videos.</p>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <span>YouTube</span><span>Shorts</span><span>MP4</span><span>HD</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>How to download a YouTube video</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3>Copy the video link</h3><p>Open the video on YouTube, tap Share and choose “Copy Link” — or copy the address from your browser's address bar.</p></div>
+    <div class="step"><div class="step-n">2</div><h3>Paste it above</h3><p>Paste the link into the box at the top of this page and press Download.</p></div>
+    <div class="step"><div class="step-n">3</div><h3>Pick a quality &amp; save</h3><p>Choose the format you want — HD video or audio only — and the file saves straight to your device.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section">
+  <h2>Why use SnapFetch for YouTube</h2>
+  <div class="cards">
+    <div class="card"><h3>Completely free</h3><p>No payment, no premium tier, no download limits. Every quality the video offers is available to everyone.</p></div>
+    <div class="card"><h3>No app, no account</h3><p>Everything runs in your browser. Nothing to install, and we never ask you to register or sign in.</p></div>
+    <div class="card"><h3>HD quality</h3><p>Download in the best quality the uploader provided — 720p, 1080p and 4K where the source offers it.</p></div>
+    <div class="card"><h3>Shorts included</h3><p>YouTube Shorts download exactly like regular videos — just paste the Shorts link.</p></div>
+  </div>
+</section>
+
+<section class="wrap content-section faq">
+  <h2>Frequently asked questions</h2>
+  <details><summary>Is this YouTube video downloader free?</summary><p>Yes. It is completely free with no download limits, no premium tier and no sign-up. The site is supported by advertising.</p></details>
+  <details><summary>What quality can I download in?</summary><p>You can choose from the formats the video itself offers, up to the highest quality the uploader provided — including HD 720p and 1080p, and 4K where available. Audio-only options are offered when the source provides them.</p></details>
+  <details><summary>Can I download YouTube Shorts?</summary><p>Yes. Copy the Shorts link the same way as a normal video link, paste it above, and download it as a regular MP4 file.</p></details>
+  <details><summary>Can I download a whole playlist?</summary><p>This page is made for single videos. Paste the link of the individual video you want to save.</p></details>
+  <details><summary>Can I download private or age-restricted videos?</summary><p>No. Only publicly playable videos can be fetched. Private, members-only and age-restricted videos cannot be saved here.</p></details>
+  <details><summary>Is it OK to download any YouTube video?</summary><p>Only download videos you own, that are in the public domain or Creative Commons licensed, or that you have the creator's permission to save — and keep them for personal use. Support creators by watching and subscribing on YouTube too. See our <a href="{{ url_for('terms') }}">Terms of Use</a>.</p></details>
+  <details><summary>Where does the downloaded file go?</summary><p>It saves to your device's Downloads folder, like any other file from your browser.</p></details>
+</section>
+{% endblock %}

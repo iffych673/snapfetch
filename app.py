@@ -216,6 +216,21 @@ def soundcloud():
     return render_template("soundcloud.html")
 
 
+@app.route("/youtube-video-downloader")
+def youtube_downloader():
+    return render_template("youtube_downloader.html")
+
+
+@app.route("/instagram-video-downloader")
+def instagram_downloader():
+    return render_template("instagram_downloader.html")
+
+
+@app.route("/tiktok-video-downloader")
+def tiktok_downloader():
+    return render_template("tiktok_downloader.html")
+
+
 @app.route("/favicon.ico")
 def favicon():
     return send_from_directory(os.path.join(BASE_DIR, "static"),
@@ -238,7 +253,8 @@ def robots():
 def sitemap():
     pages = ["/", "/how-to-download-tiktok-videos",
              "/how-to-download-facebook-videos", "/gemini-watermark-remover",
-             "/soundcloud-downloader",
+             "/soundcloud-downloader", "/youtube-video-downloader",
+             "/instagram-video-downloader", "/tiktok-video-downloader",
              "/how-to-download-youtube-videos",
              "/how-to-download-instagram-reels", "/is-downloading-videos-legal",
              "/about", "/privacy-policy", "/terms", "/dmca", "/contact"]

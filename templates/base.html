@@ -59,6 +59,9 @@
       <a href="{{ url_for('legality_guide') }}">{% block fl_guide_legality %}Is downloading videos legal?{% endblock %}</a>
       <a href="{{ url_for('gemini_remover_lang', lang=lang) if lang else url_for('gemini_remover') }}">{% block fl_guide_gemini %}Remove Gemini watermark{% endblock %}</a>
       <a href="{{ url_for('soundcloud') }}">{% block fl_guide_sc %}Download SoundCloud to MP3{% endblock %}</a>
+      <a href="{{ url_for('youtube_downloader') }}">YouTube Video Downloader</a>
+      <a href="{{ url_for('instagram_downloader') }}">Instagram Video Downloader</a>
+      <a href="{{ url_for('tiktok_downloader') }}">TikTok Video Downloader</a>
       <a href="{{ url_for('home_lang', lang=lang) if lang else url_for('home') }}">{% block fl_guide_home %}Video downloader{% endblock %}</a>
     </div>
     <div>
