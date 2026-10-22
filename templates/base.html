@@ -54,6 +54,9 @@
       <p class="footer-h">{% block fh_guides %}Guides{% endblock %}</p>
       <a href="{{ url_for('guide_tiktok_lang', lang=lang) if lang else url_for('guide_tiktok') }}">{% block fl_guide_tiktok %}Download TikTok videos{% endblock %}</a>
       <a href="{{ url_for('guide_facebook') }}">{% block fl_guide_facebook %}Download Facebook videos{% endblock %}</a>
+      <a href="{{ url_for('youtube_guide') }}">{% block fl_guide_youtube %}How to download YouTube videos{% endblock %}</a>
+      <a href="{{ url_for('instagram_guide') }}">{% block fl_guide_instagram %}How to download Instagram Reels{% endblock %}</a>
+      <a href="{{ url_for('legality_guide') }}">{% block fl_guide_legality %}Is downloading videos legal?{% endblock %}</a>
       <a href="{{ url_for('gemini_remover_lang', lang=lang) if lang else url_for('gemini_remover') }}">{% block fl_guide_gemini %}Remove Gemini watermark{% endblock %}</a>
       <a href="{{ url_for('soundcloud') }}">{% block fl_guide_sc %}Download SoundCloud to MP3{% endblock %}</a>
       <a href="{{ url_for('home_lang', lang=lang) if lang else url_for('home') }}">{% block fl_guide_home %}Video downloader{% endblock %}</a>

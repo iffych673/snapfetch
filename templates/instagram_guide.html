@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}How to Download Instagram Reels & Video Posts — Step-by-Step Guide | SnapFetch{% endblock %}
+{% block description %}Learn how to download Instagram Reels and video posts to your phone or computer with SnapFetch. Get the link from the Instagram app, paste it, and save the video — free, with no app and no account.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>How to Download Instagram Reels &amp; Video Posts</h1>
+  <p class="article-intro">Instagram Reels and video posts are full of things worth keeping — a recipe you will actually cook, a workout to follow at the gym, a travel clip a friend sent you, or your own Reels you want backed up outside the app. Instagram's built-in “Save” only bookmarks a post inside your account; it does not give you the file. This guide shows how to download public Instagram Reels and video posts with SnapFetch, a free tool that works right in your browser.</p>
+
+  <h2>Step-by-step: download an Instagram Reel or video post</h2>
+  <ol class="guide-steps">
+    <li><strong>Find the Reel or video.</strong> Open Instagram and go to the Reel or video post you want to save.</li>
+    <li><strong>Tap the Share icon.</strong> It is the paper-plane icon — on a Reel, it sits in the column on the right side; on a regular video post, it is under the video.</li>
+    <li><strong>Choose “Copy link”.</strong> If your version of the app does not show it there, tap the <strong>⋯</strong> menu on the post and choose “Link” or “Copy link” instead.</li>
+    <li><strong>Open SnapFetch.</strong> Go to the <a href="{{ url_for('home') }}">SnapFetch home page</a> in your browser — no app install is needed.</li>
+    <li><strong>Paste the link</strong> into the big box at the top and press <strong>Download</strong>.</li>
+    <li><strong>Pick your format.</strong> Choose a video quality, or pick MP3 if you only want the sound. The file saves straight to your device.</li>
+  </ol>
+
+  <h2>Getting the link from the app</h2>
+  <p>The link is the one thing SnapFetch needs, and the Instagram app hides it in slightly different places depending on the post type and your app version. For a Reel, tap the paper-plane Share icon on the right edge of the screen, then “Copy link”. For a feed video post, the Share icon is in the row under the video, next to the heart and comment icons. On a computer, life is simpler: open the post in your browser and copy the address straight from the address bar.</p>
+
+  <h2>Public posts only</h2>
+  <p>SnapFetch works with posts from <strong>public accounts</strong> — Reels and videos that anyone can open and watch. Posts from private accounts, and anything only followers can see, cannot be fetched, because there is no public file for our tool to reach. SnapFetch never asks for your Instagram password, and you should never type it into any third-party download site — a legitimate tool only needs the post's link.</p>
+
+  <h2>Tips for better results</h2>
+  <ul>
+    <li><strong>Open the post first.</strong> Copy the link from the opened Reel or post itself, not from a profile grid thumbnail, so the link points at the exact video you want.</li>
+    <li><strong>Use the full link.</strong> If a shortened link fails, open it once in your browser so it expands to the full post address, then copy that.</li>
+    <li><strong>Back up your own Reels.</strong> If you post Reels, downloading them is the easiest way to keep an original copy — including the final edited version — outside the app.</li>
+    <li><strong>Check your storage.</strong> A full phone can silently stop downloads. If a download fails for no obvious reason, free up a little space and try again.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <details><summary>Can I download Reels from a private account?</summary><p>No. SnapFetch can only fetch Reels and video posts that anyone can view publicly. Content from private accounts, or posts shared only with followers or Close Friends, cannot be downloaded.</p></details>
+    <details><summary>Does the account owner get notified?</summary><p>No. SnapFetch simply fetches the public file, the same way your browser does when you watch the post. Nothing is posted anywhere and no notification is sent.</p></details>
+    <details><summary>Can I download Instagram photos with SnapFetch?</summary><p>SnapFetch is built for video — Reels and video posts. Paste a link to a video post and you will get its video (and audio) options.</p></details>
+    <details><summary>Can I get just the audio from a Reel?</summary><p>Yes. After pasting the link, pick the MP3 option in the Audio section and only the audio will be saved.</p></details>
+    <details><summary>Do I need an Instagram account to use SnapFetch?</summary><p>No. You do not need to sign in to Instagram or to SnapFetch, and SnapFetch will never ask for your password. You only need the link to a public Reel or video post.</p></details>
+    <details><summary>Is it OK to download Instagram Reels?</summary><p>Please download only your own posts, or content you have permission to save, for personal use. Videos belong to their creators — do not re-upload someone else's Reel as your own. Our guide <a href="{{ url_for('legality_guide') }}">Is downloading videos legal?</a> explains the rules in plain English, and our <a href="{{ url_for('terms') }}">Terms of Use</a> cover the details.</p></details>
+  </div>
+</article>
+{% endblock %}

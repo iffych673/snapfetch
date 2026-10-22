@@ -159,6 +159,21 @@ def guide_facebook():
     return render_template("guide_facebook.html")
 
 
+@app.route("/how-to-download-youtube-videos")
+def youtube_guide():
+    return render_template("youtube_guide.html")
+
+
+@app.route("/how-to-download-instagram-reels")
+def instagram_guide():
+    return render_template("instagram_guide.html")
+
+
+@app.route("/is-downloading-videos-legal")
+def legality_guide():
+    return render_template("legality_guide.html")
+
+
 @app.route("/about")
 def about():
     return render_template("about.html", email=CONTACT_EMAIL)
@@ -224,6 +239,8 @@ def sitemap():
     pages = ["/", "/how-to-download-tiktok-videos",
              "/how-to-download-facebook-videos", "/gemini-watermark-remover",
              "/soundcloud-downloader",
+             "/how-to-download-youtube-videos",
+             "/how-to-download-instagram-reels", "/is-downloading-videos-legal",
              "/about", "/privacy-policy", "/terms", "/dmca", "/contact"]
     for lg in LANGS:
         pages += [f"/{lg}/", f"/{lg}/how-to-download-tiktok-videos",

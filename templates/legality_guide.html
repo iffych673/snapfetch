@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Is Downloading Videos Legal? A Plain-English Guide | SnapFetch{% endblock %}
+{% block description %}When is downloading a video OK, and when is it not? A plain-English explainer covering your own videos, public-domain and Creative Commons content, creator permission, personal use, and why private or paid content is off-limits.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>Is Downloading Videos Legal?</h1>
+  <p class="article-intro">The honest answer is: it depends — on whose video it is, what rights come with it, and what you plan to do with the file. There is no single yes-or-no, but the common situations are easy to understand. This page explains them in plain English. <strong>It is general information, not legal advice</strong>, and copyright law differs from country to country; if your situation really matters, talk to a lawyer where you live.</p>
+
+  <h2>The short version</h2>
+  <p>Downloading is normally fine when the video is <strong>yours</strong>, when it is in the <strong>public domain</strong>, when its <strong>licence allows it</strong> (for example many Creative Commons videos), or when the <strong>creator has given you permission</strong> — and you keep the file for personal use. It is not OK to take someone else's copyrighted work and re-upload it, sell it, or use it to promote a business without permission. The sections below walk through each case.</p>
+
+  <h2>Downloading your own videos</h2>
+  <p>This is the clearest case of all. If you filmed and uploaded a video, keeping a copy of your own work on your own device is entirely normal — creators do it to back up their channels, move content between platforms, and keep originals before an app adds edits or captions. One small nuance: if your video includes someone else's material — a commercial song, for example — your rights cover your video, but the song itself still belongs to its owners.</p>
+
+  <h2>Public-domain content</h2>
+  <p>Works in the public domain are not owned by anyone: copyright has expired, never applied, or was given up. Public-domain videos can be downloaded and used freely. Do check the status before assuming, though — “old” does not automatically mean public domain, and the rules for when copyright expires vary by country and by type of work.</p>
+
+  <h2>Creative Commons and other licences</h2>
+  <p>Many creators deliberately share their work under licences such as Creative Commons, which allow downloading — often for reuse too. The conditions differ by licence: some require crediting the creator (attribution), some allow only non-commercial use, and some require you to share your own work under the same terms. The licence is usually written on the video's page, so read it and follow what it says. A licence is permission with conditions, and following the conditions is what keeps you covered.</p>
+
+  <h2>Getting the creator's permission</h2>
+  <p>When there is no licence, you can simply ask. Plenty of creators are happy for viewers to keep a personal offline copy, and some actively encourage downloads. Bear in mind what the permission covers: being told “sure, save it for yourself” allows a personal copy — it does not automatically allow re-uploading the video to your own channel. If you want to do more with a video than watch it privately, say so when you ask.</p>
+
+  <h2>What “personal use” does and doesn't do</h2>
+  <p>SnapFetch is built for personal use: saving a video to watch offline yourself. Keeping downloads personal is the safest and fairest way to use any downloader — but be aware it is not a magic legal shield. Some countries have “private copying” exceptions, others do not, and downloading someone else's copyrighted video can technically infringe copyright in some places even if you never share it. That is why the safest downloads are always the ones in the categories above: yours, public domain, licensed, or permitted.</p>
+
+  <h2>Why private and paid content is off-limits</h2>
+  <p>Private videos are private because the owner chose not to share them publicly, and paid content sits behind a paywall because access is the product being sold. Reaching either means getting around a barrier the owner put there on purpose — and a tool that did that would be helping override people's choices and, for paid content, avoiding payment. SnapFetch does neither: it only fetches videos that anyone can already watch publicly, and it never asks you to log in anywhere.</p>
+
+  <h2>The things you should not do with a download</h2>
+  <ul>
+    <li><strong>Re-upload it as your own.</strong> Posting someone else's video to your channel or page — with or without edits — is the most common way downloads cause trouble.</li>
+    <li><strong>Sell it or use it commercially.</strong> Using a downloaded clip in ads, products, or client work needs the owner's permission.</li>
+    <li><strong>Strip the credit.</strong> Even where use is allowed by a licence, removing the creator's name usually breaks the licence's conditions.</li>
+    <li><strong>Share the file publicly.</strong> Sending a copy to a whole group, forum, or file-sharing site is distribution, not personal use.</li>
+  </ul>
+
+  <h2>Copyright law vs. a platform's own rules</h2>
+  <p>Two different rulebooks apply. Copyright law is the law of your country. Separately, each platform has its own terms of service, and downloading can go against a platform's terms even in a case where copyright itself is not infringed. SnapFetch's own <a href="{{ url_for('terms') }}">Terms of Use</a> put downloads in the personal-use, own-or-permitted category — what you download and how you use it is your responsibility, so it is worth knowing both sets of rules.</p>
+
+  <h2>How SnapFetch's rules reflect all of this</h2>
+  <ul>
+    <li><strong>Public videos only.</strong> If a video needs a login, is private, or is paid, SnapFetch cannot fetch it — by design, not by accident.</li>
+    <li><strong>No logins, no passwords.</strong> We never ask for your account details on any platform, so there is no way for the tool to reach behind anyone's privacy settings.</li>
+    <li><strong>Nothing is stored.</strong> Files are fetched fresh from the original platform each time you download and pass straight to your device. SnapFetch does not host or keep copies of anyone's videos.</li>
+    <li><strong>Rights holders can reach us.</strong> If you own a video and believe it is being misused in connection with SnapFetch, our <a href="{{ url_for('dmca') }}">DMCA / Copyright page</a> explains how to contact us, and we take those notices seriously.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <details><summary>Is it legal to download a video just to watch offline?</summary><p>It depends on the video and your country's law. Your own videos, public-domain works, licensed content, and anything the creator allows are the safe categories. “I only watched it myself” is not, by itself, a guaranteed legal defence everywhere — which is why we recommend staying in the safe categories.</p></details>
+    <details><summary>If I give credit, can I re-upload someone's video?</summary><p>No. Credit is not permission. Attribution is a condition of some licences, but without a licence or the creator's agreement, re-uploading someone else's video can infringe their copyright no matter how clearly you credit them.</p></details>
+    <details><summary>Can I use a downloaded clip in my own video or business?</summary><p>Only if the clip is yours, public domain, covered by a licence that allows that use, or you have the creator's permission for it. Commercial use is where creators and platforms enforce their rights most actively.</p></details>
+    <details><summary>Why won't SnapFetch download a private video if I can see it?</summary><p>Being allowed to watch something — as a friend, follower, or group member — is not the same as it being public. SnapFetch is deliberately limited to publicly viewable videos so it never reaches past a privacy or payment barrier.</p></details>
+  </div>
+
+  <p><em>This page is general information about how copyright and licences usually work, written in plain English. It is not legal advice, and it does not create any lawyer–client relationship. Laws vary by country and change over time; for decisions that matter, consult a qualified lawyer in your jurisdiction.</em></p>
+</article>
+{% endblock %}

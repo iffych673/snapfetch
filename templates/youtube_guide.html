@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}How to Download YouTube Videos & Shorts — Step-by-Step Guide | SnapFetch{% endblock %}
+{% block description %}Learn how to download YouTube videos and Shorts to your phone or computer with SnapFetch. Pick a quality up to the original upload, or save just the audio as MP3 — free, with no app and no account.{% endblock %}
+{% block content %}
+<article class="wrap article">
+  <h1>How to Download YouTube Videos &amp; Shorts</h1>
+  <p class="article-intro">YouTube is where tutorials, talks, music and everyday how-tos live — and sometimes you need one of them as a file on your own device: a lecture to watch on a flight, a repair walkthrough for a room with no signal, or a copy of one of your own uploads. YouTube's own offline feature keeps downloads locked inside the app. This guide shows how to download public YouTube videos and Shorts with SnapFetch, a free tool that works right in your browser.</p>
+
+  <h2>Step-by-step: download a YouTube video or Short</h2>
+  <ol class="guide-steps">
+    <li><strong>Find the video.</strong> Open YouTube and go to the video or Short you want to save.</li>
+    <li><strong>Tap Share.</strong> On a regular video, the Share button is under the player. On a Short, it is in the column of icons on the right side.</li>
+    <li><strong>Choose “Copy link”.</strong> The video's web address is now on your clipboard.</li>
+    <li><strong>Open SnapFetch.</strong> Go to the <a href="{{ url_for('home') }}">SnapFetch home page</a> in your browser — no app install is needed.</li>
+    <li><strong>Paste the link</strong> into the big box at the top and press <strong>Download</strong>.</li>
+    <li><strong>Pick your format.</strong> Choose a video quality, or pick MP3 if you only want the sound. The file saves straight to your device.</li>
+  </ol>
+
+  <h2>Choosing the right quality</h2>
+  <p>SnapFetch offers the qualities the video itself was uploaded in — anything from small 360p files up to 1080p HD or higher when the original upload has it. Higher quality looks sharper but makes a much bigger file, so pick for the screen you will watch on: 360p or 480p is usually plenty for a phone, while 720p or 1080p makes sense for a laptop or TV. If you pick a high-quality option, SnapFetch automatically combines it with the matching audio track, so the file you save plays with sound like any normal MP4.</p>
+
+  <h2>Downloading YouTube Shorts</h2>
+  <p>Shorts work exactly the same way. Shorts links contain <em>/shorts/</em> in the address, and the video saves in its original vertical format — handy if you are backing up your own Shorts or saving a quick tip to rewatch later. On the YouTube app, the Share button is on the right edge of the screen while the Short plays; from there, choose “Copy link” and follow the same steps above.</p>
+
+  <h2>Just want the audio? Use the MP3 option</h2>
+  <p>For lectures, interviews, podcasts and music you legally have the right to save, the video itself is often more than you need. After pasting the link, look in the Audio section and choose the <strong>MP3</strong> option — SnapFetch converts the sound to an MP3 file on download, small enough to keep a whole playlist of talks on your phone.</p>
+
+  <h2>Tips for better results</h2>
+  <ul>
+    <li><strong>Use the full link.</strong> If a shortened link fails, open it once in your browser so it expands to the full video address, then copy that.</li>
+    <li><strong>Back up your own channel.</strong> Downloading your published videos is the easiest way to keep an original copy of your work outside YouTube.</li>
+    <li><strong>Mind long videos.</strong> A two-hour video in HD can be several gigabytes. If you only need to watch once, a mid-range quality is a kinder download.</li>
+    <li><strong>Check your storage.</strong> A full phone can silently stop downloads. If a download fails for no obvious reason, free up a little space and try again.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <details><summary>Can I download a private YouTube video?</summary><p>No. SnapFetch can only fetch videos that anyone can view publicly. Private videos — and videos that need a login to watch — cannot be downloaded.</p></details>
+    <details><summary>Can I download YouTube Shorts?</summary><p>Yes. Paste the Short's link the same way as a regular video link, and it saves in its original vertical format.</p></details>
+    <details><summary>What is the best quality to choose?</summary><p>Choose the smallest quality that looks good on your screen: 360p–480p for phones, 720p–1080p for larger screens. The options shown are the ones the video was originally uploaded in — a download can never be sharper than the original upload.</p></details>
+    <details><summary>Can I download just the sound from a YouTube video?</summary><p>Yes. After pasting the link, choose the MP3 option in the Audio section and only the audio will be saved.</p></details>
+    <details><summary>Do I need a YouTube account to use SnapFetch?</summary><p>No. You do not need to sign in to YouTube or to SnapFetch. You only need the link to a public video.</p></details>
+    <details><summary>Is it allowed to download YouTube videos?</summary><p>Downloading is fine for your own videos and for content you have permission to save, for personal use. Videos belong to their creators — please do not re-upload someone else's work as your own. Our guide <a href="{{ url_for('legality_guide') }}">Is downloading videos legal?</a> explains this in plain English, and our <a href="{{ url_for('terms') }}">Terms of Use</a> cover the details.</p></details>
+  </div>
+</article>
+{% endblock %}
