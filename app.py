@@ -23,6 +23,7 @@ from flask import (
     Flask, Response, abort, jsonify, render_template, request,
     send_file, send_from_directory, url_for,
 )
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 import shutil as _shutil
@@ -31,6 +32,24 @@ YTDLP_BIN = os.environ.get(
     _shutil.which("yt-dlp") or os.path.expanduser("~/workspace/bin/yt-dlp"))
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
+
+# The app runs behind Render/Cloudflare, which terminate TLS and forward
+# over plain http. Without this, request.url / request.url_root echo "http"
+# and every canonical, og:url, hreflang, sitemap and robots URL is wrong.
+# x_proto=1 trusts the proxy's X-Forwarded-Proto (https in production).
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1)
+# Belt and braces: any URL built without a request context also uses https.
+app.config["PREFERRED_URL_SCHEME"] = "https"
+
+
+@app.after_request
+def _security_headers(resp):
+    resp.headers["X-Content-Type-Options"] = "nosniff"
+    resp.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    resp.headers["X-Frame-Options"] = "SAMEORIGIN"
+    # Site is served over https only; HSTS pairs with the https canonicals.
+    resp.headers["Strict-Transport-Security"] = "max-age=31536000"
+    return resp
 
 SITE_NAME = "SnapFetch"
 CONTACT_EMAIL = "irfanzafar021@gmail.com"
@@ -261,8 +280,12 @@ def sitemap():
     for lg in LANGS:
         pages += [f"/{lg}/", f"/{lg}/how-to-download-tiktok-videos",
                   f"/{lg}/gemini-watermark-remover"]
+    # One honest deploy date for every URL (per-page dates are not tracked;
+    # never fabricate them). Update on redeploy if freshness signalling matters.
+    lastmod = "2026-11-01"
     urls = "".join(
-        f"<url><loc>{request.url_root.rstrip('/')}{p}</loc></url>"
+        f"<url><loc>{request.url_root.rstrip('/')}{p}</loc>"
+        f"<lastmod>{lastmod}</lastmod></url>"
         for p in pages)
     body = ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'

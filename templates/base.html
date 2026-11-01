@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% block title %}SnapFetch — Free Video Downloader for TikTok, Facebook, Instagram & YouTube{% endblock %}</title>
 <meta name="description" content="{% block description %}SnapFetch is a free online video downloader. Paste a link from TikTok, Facebook, Instagram, YouTube or X and save the video in seconds — no app, no account, no cost.{% endblock %}">
-<link rel="canonical" href="{{ request.url }}">
+{% block canonical %}<link rel="canonical" href="{{ request.url }}">{% endblock %}
 {% if page_key %}{% set _eps = {'home': ('home', 'home_lang'), 'guide': ('guide_tiktok', 'guide_tiktok_lang'), 'gemini': ('gemini_remover', 'gemini_remover_lang')} %}{% set _ep = _eps[page_key] %}<link rel="alternate" hreflang="x-default" href="{{ url_for(_ep[0], _external=True) }}">
 <link rel="alternate" hreflang="en" href="{{ url_for(_ep[0], _external=True) }}">
 {% for _l in LANG_LIST %}<link rel="alternate" hreflang="{{ _l }}" href="{{ url_for(_ep[1], lang=_l, _external=True) }}">
